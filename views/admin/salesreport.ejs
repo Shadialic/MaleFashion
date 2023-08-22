@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>male fasion admin</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="/admincss/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/admincss/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/admincss/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/admincss/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/admincss/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl position-relative bg-white d-flex p-0">
+        <!-- Spinner Start -->
+
+
+
+        <!-- Sidebar Start -->
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-light navbar-light">
+                <a href="index.html" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>Male fashion</h3>
+                </a>
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="/admincss/img/user.jpg" alt=""
+                            style="width: 40px; height: 40px;">
+                        <div
+                            class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
+                        </div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0">Shadil</h6>
+                        <span>Admin</span>
+                    </div>
+                </div>
+                <div class="navbar-nav w-100">
+                    <a href="/admin/adminHome" class="nav-item nav-link "><i
+                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+
+                    <a class="nav-link " data-toggle="collapse" href="/admin/users" aria-expanded="false"><i
+                            class="fa fa-laptop me-2 "></i>
+                        <span class="menu-title">Users</span></a>
+
+                    <a href="/admin/product" class="nav-item nav-link "><i class="fa fa-th me-2"></i>products</a>
+                    <a href="/admin/category" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Category</a>
+                    <a href="/admin/orders" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Orders</a>
+                    <a href="/admin/coupon" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Coupen</a>
+                    <a href="/admin/banners" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Banners</a>
+                    <a href="/admin/salesreport" class="nav-item nav-link active"><i
+                            class="fa fa-book"></i>salesReport</a>
+
+                </div>
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control border-0" type="search" placeholder="Search">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="/admincss/img/user.jpg" alt=""
+                                style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Shadil</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="/admin/logout" class="dropdown-item">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+
+
+            <!-- Recent Sales Start -->
+            <div class="container-fluid pt-5 px-4">
+                <div class="container ">
+                    <div class="title">
+                        <h1>Sales Report</h1>
+                       
+                        <div class="d-flex flex-row-reverse">
+                        <button type="button" onclick="downloadPDF()" class="btn btn-success m-2">Download PDF</button>
+                        </div>
+                        <form class="test" style="padding: 10px;">
+                            <div class="w-100 bg-black p-2"> <!-- Added padding -->
+                                <span class="mr-2">from :</span> <!-- Added margin to align properly -->
+                                <input name="start" type="date" style="    margin: 0;
+                                font-family: system-ui;
+                                font-size: inherit;
+                                line-height: 35px;
+                                border-radius: 6px;
+                            ">
+                                <span class="mx-2">to :</span> <!-- Added margin to align properly -->
+                                <input name="end" type="date" style="    margin: 0;
+                                font-family: system-ui;
+                                font-size: inherit;
+                                line-height: 35px;
+                                border-radius: 6px;
+                            ">
+                                <button type="submit" id="filterBtn" class="btn btn-primary ml-2">Filter</button> <!-- Added classes for styling and margin -->
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="info">
+                        <table class="table" id="categorytable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">order id</th>
+                                    <th scope="col">Total Amount</th>
+                                    <th scope="col">Method</th>
+                                    <th scope="col">status</th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <% data.reverse().forEach((value,index)=>{ %>
+                                    <tr>
+                                        <td>
+                                            <%= index+1 %>
+                                        </td>
+                                        <td>
+                                            <%= value.Date.toISOString().substring(0,10) %>
+                                        </td>
+                                        <td>
+                                            <%=value._id %>
+                                        </td>
+                                        <td>$<%= value.totalAmount %>
+                                        </td>
+                                        <td>
+                                            <%= value.paymentMethod %>
+                                        </td>
+                                        <td>
+                                            <%= value.status %>
+                                        </td>
+
+                                        <% })%>
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <h3>Total Sales = ₹<%= total%>
+                    </h3>
+                </div>
+                <!-- Table End -->
+            </div>
+            <!-- Table End -->
+
+
+            <!-- !-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">Male fasion</a>, All Right Reserved.
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a href="/admincss/https://htmlcodex.com">HTML Codex</a>
+                            </br>
+                            Distributed By <a class="border-bottom" href="/admincss/https://themewagon.com"
+                                target="_blank">ThemeWagon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/admincss/lib/chart/chart.min.js"></script>
+    <script src="/admincss/lib/easing/easing.min.js"></script>
+    <script src="/admincss/lib/waypoints/waypoints.min.js"></script>
+    <script src="/admincss/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/admincss/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="/admincss/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="/admincss/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/admincss/js/main.js"></script>
+    <script>
+        function downloadPDF() {
+            var details = document.getElementById("categorytable");
+            var newWin = window.open('', 'Print-Window');
+            newWin.document.open();
+            newWin.document.write('<html><head><style>@media print { @page { size: A4; margin: 0; } }</style></head><body onload="window.print()">' + details.outerHTML + '</html>'); newWin.document.close();
+            setTimeout(function () { newWin.close(); }, 10);
+        }
+    </script>
+
+</body>
+
+</html>

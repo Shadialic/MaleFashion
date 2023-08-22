@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Male_Fashion Template">
+    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Male-Fashion | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+    <style>
+        /* Add styling to the .prd-bottom container */
+        .prd-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style the social-info anchors */
+        .prd-bottom .social-info {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5px;
+        }
+
+        /* Style the social-info icons */
+        .prd-bottom .social-info span {
+            font-size: 24px;
+        }
+
+        /* Style the hover-text */
+        .prd-bottom .hover-text {
+            margin-top: 5px;
+            font-size: 12px;
+        }
+
+        .no-border {
+            border: none;
+        }
+    </style>
+    <style>
+        /* Basic styling for the filter section */
+        .product-filter {
+            margin: 20px;
+        }
+
+        .filter-widget {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .fw-title {
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .shop_sidebar_price {
+            margin-top: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Styling for the dropdown arrow */
+        select::-ms-expand {
+            display: none;
+        }
+
+        select::before {
+            content: "\25BC";
+            /* Unicode for the down arrow character */
+            display: inline-block;
+            font-size: 14px;
+            margin-right: 5px;
+            transform: translateY(-1px);
+        }
+
+        /* Style for the dropdown options */
+        select option {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Hover effect for the dropdown options */
+        select option:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <style>
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            padding: 8px 12px;
+            margin: 0 5px;
+            background-color: #eaeaea;
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .pagination a:hover {
+            background-color: #ddd;
+        }
+
+        .pagination .current-page {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body style="background-color: white;">
+
+<!-- Offcanvas Menu Begin -->
+<div class="offcanvas-menu-overlay"></div>
+<div class="offcanvas-menu-wrapper">
+    <div class="offcanvas__option">
+        <div class="offcanvas__links">
+            <a href="/loginpage">Sign in</a>
+            <a href="#">FAQs</a>
+        </div>
+
+    </div>
+    <div class="offcanvas__nav__option">
+        <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt=""></a>
+        <a href="/wishlist"><img src="/assets/img/icon/heart.png" alt=""></a>
+        <a href="cart"><img src="/assets/img/icon/cart.png" alt=""> <span>0</span></a>
+        <a href="/userprofile"><img style="width: 2em;" src="/assets/img/icon/download.png" alt=""> </a>
+        <div class="price"></div>
+    </div>
+    <div id="mobile-menu-wrap"></div>
+</div>
+<!-- Offcanvas Menu End -->
+
+<!-- Header Section Begin -->
+<header class="header">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="header__logo">
+                    <a href="./index.html"><img src="/assets/img/logo.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <nav class="header__menu mobile-menu">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li class="active"><a href="/products">Shop</a>
+
+
+                        </li>
+                        <li><a href="/order">Orders</a>
+
+
+                        <li><a href="/contacts">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="header__nav__option">
+                    <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt=""></a>
+                    <a href="/wishlist"><img src="/assets/img/icon/heart.png" alt=""></a>
+                    <a href="cart"><img src="/assets/img/icon/cart.png" alt=""> <span>0</span></a>
+                    <a href="/userprofile" style="width: 12%;"><img src="/assets/img/icon/download.png" alt="" ></a>
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="canvas__open"><i class="fa fa-bars"></i></div>
+    </div>
+</header>
+<!-- Header Section End -->
+   
+    <section class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h4>Shop</h4>
+                        <div class="breadcrumb__links">
+                            <a href="/home">Home</a>
+                            <span>Shop</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container" style="background-color: white; 
+    padding: 10px;">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-5">
+                <div class="shop__sidebar__search">
+                    <form class="d-flex align-items-center ms-4"
+                        style="border: solid 2px #00000029; border-radius: 6px;">
+                        <input class="form-control border-0" type="text" placeholder="Search" name="search">
+                        <span class="icon_search ms-2" style="    color: #3b31315c;
+                        padding: 8px;
+                    "></span>
+                    </form>
+                </div>
+                <div class="shop__sidebar__accordion">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-heading">
+                                <a data-toggle="collapse" data-target="#collapseOne" class="collapsed"
+                                    aria-expanded="false">Categories</a>
+                            </div>
+                            <div id="collapseOne" class="collapse" data-parent="#accordionExample">
+
+
+                                <ul class="main-categories list-group no-border"
+                                    style="width: 45%; background-color: white;">
+                                    <% if(data2.length> 0) { %>
+                                        <% data2.forEach(function(data2, index) { %>
+                                            <li class="main-nav-list list-group-item"
+                                                style="text-align: center; font-weight: bold; display: flex;border: none;">
+                                                <a href="/products?filter=<%= data2._id %>&search=<%= search %>&sort=<%= sort %>"
+                                                    class="text-decoration-none" style="color: #00000063;">
+                                                    <%= data2.category %>
+                                                </a>
+                                            </li>
+                                            <% }) %>
+                                                <% } else { %>
+                                                    <li class="list-group-item">
+                                                        Category Not Found
+                                                    </li>
+                                                    <% } %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-8 col-md-7">
+                <!-- Start Filter Bar -->
+                <div class="filter-bar d-flex flex-wrap align-items-center">
+                    <div class="sorting">
+                        <select
+                            onchange="location = '/products?sort='+value+'&search=<%= search %>&filter=<%= filter %>'">
+                            <% if(sort==1){%>
+                                <option value="Low" selected>Low to High</option>
+                                <option value="High">High to Low</option>
+                                <%}else {%>
+                                    <option value="Low">Low to High</option>
+                                    <option value="High" selected>High to Low</option>
+                                    <%} %>
+                        </select>
+                        <section class="product-filter">
+                            <div class="filter-widget">
+                                <span class="fw-title" data-toggle="collapse" data-target="#collapseThree">Filter
+                                    Price</span>
+                                <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop_sidebar_price">
+                                            <select onchange="updateFilter(this.value)">
+                                                <option value="">Select Price Range</option>
+                                                <option
+                                                    value="?minPrice=0&maxPrice=20000&categoryId=<%= categoryId %>&sortValue=<%= sortValue %>">
+                                                    All products</option>
+                                                <option
+                                                    value="?minPrice=0&maxPrice=499&categoryId=<%= categoryId %>&sortValue=<%= sortValue %>">
+                                                    Under Rs 500</option>
+                                                <option
+                                                    value="?minPrice=500&maxPrice=999&categoryId=<%= categoryId %>&sortValue=<%= sortValue %>">
+                                                    Rs 500 - Rs 999</option>
+                                                <option
+                                                    value="?minPrice=1000&maxPrice=1999&categoryId=<%= categoryId %>&sortValue=<%= sortValue %>">
+                                                    Rs 1000 - Rs 1999</option>
+                                                <option
+                                                    value="?minPrice=2000&maxPrice=2499&categoryId=<%= categoryId %>&sortValue=<%= sortValue %>">
+                                                    Rs 2000 - Rs 2499</option>
+                                                <option
+                                                    value="?minPrice=2500&maxPrice=4999&categoryId=<%= categoryId %>&sortValue=<%= sortValue %>">
+                                                    Rs 2500 - Rs 4999</option>
+                                                <option
+                                                    value="?minPrice=5000&maxPrice=25000&categoryId=<%= categoryId %>&sortValue=<%= sortValue %>">
+                                                    Above Rs 5000</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+                <br>
+                <!-- End Filter Bar -->
+                <!-- Start Best Seller -->
+                <section class="lattest-product-area pb-40 category-list">
+                    <div class="row">
+                        <% if (user.length> 0) { %>
+                            <% user.forEach(function(user, index) { %>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-product border-solid-1px black">
+                                        <div class="product__item">
+                                            <div class="product__item__pic set-bg"
+                                                data-setbg="/productimages/<%= user.image[1] %>"
+                                               >
+                                                <ul class="product__hover">
+                                                 
+                                                   <li> <a onclick="addwish('<%=user._id %>')" class="social-info">
+                                                        <img src="/assets/img/icon/heart.png" alt="">
+                                                       
+                                                    </a></li>
+                                                    
+                                                    <li><a href="/detailesproduct?id=<%=user._id %>"><img
+                                                                src="/assets/img/icon/search.png" alt=""> <span>Detailed
+                                                                Product</span></a></li>
+
+                                                </ul>
+
+                                            </div>
+                                            <div class="product__item__text">
+                                                
+                                                    <a href="#" onclick="addcart('<%=user._id %>')"
+                                                        class="add-cart">+ Add to Cart</a>
+                                               
+                                                        <h6>
+                                                            <%= user.brand %>
+                                                        </h6>
+
+                                                        <h6>
+                                                            <%= user.productname %>
+                                                        </h6>
+                                                        <div class="$price">
+                                                            <h6><strong>₹<%= user.price %>.00</strong></h6>
+                                                        </div>
+                                                        <h5>
+                                                            <%= user.category.category %>
+                                                        </h5>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <% }) %>
+                                    <% } else { %>
+                                        <tr>
+                                            <td>
+                                                User Not Found
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                    </div>
+
+                </section>
+                <br>
+                <!-- End Best Seller -->
+                <!-- Start Filter Bar -->
+                <div class="filter-bar d-flex flex-wrap align-items-center">
+
+                    <div class="pagination">
+                        <% for(let i=0; i< total; i++){ %>
+                            <a href="/products?page=<%=i+1%>&filter=<%= filter %>&search=<%= search %>">
+                                <%=i+1%>
+                            </a>
+                            <% } %>
+                    </div>
+                </div>
+                <!-- End Filter Bar -->
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+
+
+
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="/assets/img/footer-logo.png" alt=""></a>
+                        </div>
+                        <p>The customer is at the heart of our unique business model, which includes design.</p>
+                        <a href="#"><img src="/assets/img/payment.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Shopping</h6>
+                        <ul>
+                            <li><a href="#">Clothing Store</a></li>
+                            <li><a href="#">Trending Shoes</a></li>
+                            <li><a href="#">Accessories</a></li>
+                            <li><a href="#">Sale</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Shopping</h6>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Delivary</a></li>
+                            <li><a href="#">Return & Exchanges</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>NewLetter</h6>
+                        <div class="footer__newslatter">
+                            <p>Be the first to know about new arrivals, look books, sales & promos!</p>
+                            <form action="#">
+                                <input type="text" placeholder="Your email">
+                                <button type="submit"><span class="icon_mail_alt"></span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="footer__copyright__text">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p>Copyright ©
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>2020
+                            All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Male
+                                fasion</a>
+                        </p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
+
+    <!-- Js Plugins -->
+    <script>
+        const addcart = function (id) {
+            $.ajax({
+                url: "/addtocart",
+                method: 'post',
+                data: {
+                    id: id
+                },
+                success: function (response) {
+                    if (response.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Saved cart!',
+                            text: 'You clicked the button!',
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Please Login',
+                            text: 'Please Login to your account',
+                        });
+                    }
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'An error occurred while making the request.',
+                    });
+                }
+            });
+        }
+    </script>
+    <script>
+        const addwish = function (id) {
+            $.ajax({
+                url: "/addtowishlist",
+                method: 'get',
+                data: {
+                    id: id
+                },
+                success: function (response) {
+                    if (response.status) {
+                        Swal.fire(
+                            'Saved Wishlist!',
+                            'You clicked the button!',
+                            'success'
+                        );
+                    } else {
+                        Swal.fire(
+                            'Product Already in Wishlist!',
+                            'This product is already in your wishlist.',
+                            'info'
+                        );
+                    }
+
+                }
+            });
+        }
+    </script>
+
+
+
+    <script>
+        function updateFilter(value) {
+            if (value) {
+                // Redirect or do whatever action based on the selected value
+                window.location.href = value;
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+    <script src="/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/jquery.nice-select.min.js"></script>
+    <script src="/assets/js/jquery.nicescroll.min.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/js/jquery.countdown.min.js"></script>
+    <script src="/assets/js/jquery.slicknav.js"></script>
+    <script src="/assets/js/mixitup.min.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

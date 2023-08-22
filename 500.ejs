@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500 Error</title>
+    <link rel="stylesheet" href="/500.css">
+</head>
+<body>
+    <div class="status text">500</div>
+    <div class="message text">Yikes!!! Something ain't right!</div>
+    {{#if message}}
+        <div class="message text"><p>{{message}}</p></div>
+    {{/if}}
+    <div class="container">
+        <img class="servers" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Server-multiple.svg"/>
+        <img class="explode" src="https://upload.wikimedia.org/wikipedia/commons/5/52/Explosion-153710_icon.svg"/>
+        <img class="explode" src="https://upload.wikimedia.org/wikipedia/commons/5/52/Explosion-153710_icon.svg"/>
+        <img class="explode" src="https://upload.wikimedia.org/wikipedia/commons/5/52/Explosion-153710_icon.svg"/>
+        <img class="explode" src="https://upload.wikimedia.org/wikipedia/commons/5/52/Explosion-153710_icon.svg"/>
+        <img class="explode" src="https://upload.wikimedia.org/wikipedia/commons/5/52/Explosion-153710_icon.svg"/>
+        <img class="explode" src="https://upload.wikimedia.org/wikipedia/commons/5/52/Explosion-153710_icon.svg"/>
+    </div>
+
+    <script>
+        const explosions = document.querySelectorAll('.explode');
+        const serverSVG = document.querySelector('.servers');
+
+        function explode(e) {
+            e.style.display = 'block';
+            let servers = serverSVG.getBoundingClientRect();
+            e.style.left = `calc(${Math.round(servers.left + (Math.random() * servers.width / 2))}px + 6vmin)`;
+            e.style.top = Math.round(servers.top + (Math.random() * servers.height / 2)) + 'px';
+            e.style.transform = `rotate(${Math.round(Math.random() * 360)}deg) scale(${0.5 + Math.random() * 0.5})`;
+            setTimeout(() => {e.style.display = 'none'}, 200);
+        }
+
+        setInterval(() => {
+            explode(explosions[Math.floor(Math.random() * explosions.length)]);
+        }, 100);
+    </script>
+</body>
+</html>

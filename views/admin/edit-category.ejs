@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <head>
+    <meta charset="utf-8">
+    <title>male fasion admin</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+  
+    <!-- Favicon -->
+    <link href="/admincss/img/favicon.ico" rel="icon">
+  
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  
+    <!-- Libraries Stylesheet -->
+    <link href="/admincss/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/admincss/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+  
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/admincss/css/bootstrap.min.css" rel="stylesheet">
+  
+    <!-- Template Stylesheet -->
+    <link href="/admincss/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+      <div class="container-xxl position-relative bg-white d-flex p-0">
+          <!-- Spinner Start -->
+         
+  
+  
+          <!-- Sidebar Start -->
+          <div class="sidebar pe-4 pb-3">
+              <nav class="navbar bg-light navbar-light">
+                  <a href="index.html" class="navbar-brand mx-4 mb-3">
+                      <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>Male fashion</h3>
+                  </a>
+                  <div class="d-flex align-items-center ms-4 mb-4">
+                      <div class="position-relative">
+                          <img class="rounded-circle" src="/admincss/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                          <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                      </div>
+                      <div class="ms-3">
+                          <h6 class="mb-0">Shadil</h6>
+                          <span>Admin</span>
+                      </div>
+                  </div>
+                  <div class="navbar-nav w-100">
+                      <a href="/admin/adminHome" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                   
+                      <a class="nav-link " data-toggle="collapse" href="/admin/users" aria-expanded="false"><i class="fa fa-laptop me-2 "></i>
+                        <span class="menu-title">Users</span></a>
+                   
+                      <a href="/admin/product" class="nav-item nav-link "><i class="fa fa-th me-2"></i>products</a>
+                      <a href="/admin/category" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Category</a>
+                      <a href="/admin/orders" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Orders</a>
+                      <a href="/admin/coupen" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Coupen</a>
+                      <a href="/admin/banners" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Banners</a>
+                      <a href="/admin/salesreport" class="nav-item nav-link"><i class="fa fa-book"></i>salesReport</a>
+                  </div>
+              </nav>
+          </div>
+          <!-- Sidebar End -->
+  
+  
+          <!-- Content Start -->
+          <div class="content">
+              <!-- Navbar Start -->
+              <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                  <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                      <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                  </a>
+                  <a href="#" class="sidebar-toggler flex-shrink-0">
+                      <i class="fa fa-bars"></i>
+                  </a>
+                  <form class="d-none d-md-flex ms-4">
+                      <input class="form-control border-0" type="search" placeholder="Search">
+                  </form>
+                  <div class="navbar-nav align-items-center ms-auto">
+                     
+                      <div class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                              <img class="rounded-circle me-lg-2" src="/admincss/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                              <span class="d-none d-lg-inline-flex">Shadil</span>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                              <a href="#" class="dropdown-item">My Profile</a>
+                              <a href="#" class="dropdown-item">Settings</a>
+                              <a href="/admin/logout" class="dropdown-item">Log Out</a>
+                          </div>
+                      </div>
+                  </div>
+              </nav>
+              <!-- Navbar End -->
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="bg-dark rounded h-100 p-4">
+          <h6 class="mb-4">Edit Category</h6>
+          <form action="/admin/edit-category?id=<%= category._id %>" method="post">
+            <div class="mb-3">
+              <label class="form-label">Category</label>
+              <input type="text" class="form-control" name="category" id="exampleInputEmail1"
+                aria-describedby="emailHelp" value="women">
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+
+
+        <!-- Basic Layout & Basic with Icons -->
+
+        <!-- content-wrapper ends -->
+
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- partial:partials/_footer.html -->
+  <footer class="footer">
+    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+      <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com
+        2020</span>
+      <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
+          href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a>
+        from Bootstrapdash.com</span>
+    </div>
+  </footer>
+  <!-- partial -->
+  <!-- plugins:js -->
+  <script src="/styles/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/styles/vendors/chart.js/Chart.min.js"></script>
+  <script src="/styles/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/styles/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+  <script src="/styles/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="/styles/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/styles/js/off-canvas.js"></script>
+  <script src="/styles/js/hoverable-collapse.js"></script>
+  <script src="/styles/js/misc.js"></script>
+  <script src="/styles/js/settings.js"></script>
+  <script src="/styles/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="/styles/js/dashboard.js"></script>
+  <!-- End custom js for this page -->
+</body>
+
+</html>

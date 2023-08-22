@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Male_Fashion Template">
+    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Male-Fashion | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+    <style>
+        /* Add styling to the .prd-bottom container */
+        .prd-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style the social-info anchors */
+        .prd-bottom .social-info {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5px;
+        }
+
+        /* Style the social-info icons */
+        .prd-bottom .social-info span {
+            font-size: 24px;
+        }
+
+        /* Style the hover-text */
+        .prd-bottom .hover-text {
+            margin-top: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body style="background-color: white;">
+
+
+   <!-- Offcanvas Menu Begin -->
+<div class="offcanvas-menu-overlay"></div>
+<div class="offcanvas-menu-wrapper">
+    <div class="offcanvas__option">
+        <div class="offcanvas__links">
+            <a href="/loginpage">Sign in</a>
+        </div>
+
+    </div>
+    <div class="offcanvas__nav__option">
+        <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt=""></a>
+        <a href="/wishlist"><img src="/assets/img/icon/heart.png" alt=""></a>
+        <a href="cart"><img src="/assets/img/icon/cart.png" alt=""> <span>0</span></a>
+        <a href="/userprofile"><img style="width: 2em;" src="/assets/img/icon/download.png" alt=""> </a>
+        <div class="price"></div>
+    </div>
+    <div id="mobile-menu-wrap"></div>
+</div>
+<!-- Offcanvas Menu End -->
+
+<!-- Header Section Begin -->
+<header class="header">   
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="header__logo">
+                    <a href="./index.html"><img src="/assets/img/logo.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <nav class="header__menu mobile-menu">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/products">Shop</a></li>    
+                        <li class="active"><a href="/order">Orders</a>
+                        <li><a href="/contacts">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="header__nav__option">
+                    <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt=""></a>
+                    <a href="/wishlist"><img src="/assets/img/icon/heart.png" alt=""></a>
+                    <a href="cart"><img src="/assets/img/icon/cart.png" alt=""> <span>0</span></a>
+                    <a href="/userprofile" style="width: 12%;"><img src="/assets/img/icon/download.png" alt="" ></a>
+                </div>
+            </div>
+        </div>
+        <div class="canvas__open"><i class="fa fa-bars"></i></div>
+    </div>
+</header>
+<!-- Header Section End -->
+        <div class="container" style="padding: 40px;
+        background: #f3f2ee;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h4>Your Orders</h4>
+                        <div class="breadcrumb__links">
+                            <a href="/home">Home</a>
+                            <span>Your Order</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--================Cart Area =================-->
+        <div class="container-fluid pt-5 px-4">
+    <div class="row pt-4 g-4">
+        <div class="col-12">
+            <!-- Using "col" class instead of "h-100" for better responsiveness -->
+            <div class="bg-light rounded p-4">
+                <% if (typeof data !== 'undefined' && data.length > 0) { %>
+                    <div class="table-responsive"> <!-- Add a wrapper for responsive tables -->
+                        <table class="table" id="categorytable">
+                            <!-- Table headers -->
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Total Amount</th>
+                                    <th scope="col">Method</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">View</th>
+                                    <th scope="col">Option</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                                        <tbody>
+                                            <% data.reverse().forEach((value, index) => { %>
+                                                <tr>
+                                                    <td><%= index + 1 %></td>
+                                                    <td><%= value.Date.toISOString().substring(0, 10) %></td>
+                                                    <td><%=value.user%></td>
+                                                    <td><%= value.totalAmount %></td>
+                                                    <td><%= value.paymentMethod %></td>
+                                                    <td><%= value.status %></td>
+                                                    <td>
+                                                        <a href="/singleOrder?id=<%= value._id %>">
+                                                            <button class="btn btn-primary">view</button>
+                                                        </a>
+                                                    </td>
+                                                    <% if (value.status === 'Delivered') { %>
+                                                        <td>
+                                                            <a href="/returnOrder?id=<%= value._id %>"
+                                                               onclick="return confirm('Do you want to return this product?')">
+                                                                <button class="btn btn-success">Return</button>
+                                                            </a>
+                                                        </td>
+                                                    <% } else if (value.status === 'Placed' || value.status === 'Shipped') { %>
+                                                        <td>
+                                                            <a href="/cancelOrder?id=<%= value._id %>"
+                                                               onclick="return confirm('Do you want to cancel this product?')">
+                                                                <button class="btn btn-danger">Cancel</button>
+                                                            </a>
+                                                        </td>
+                                                    <% } else if (value.status === 'cancelled' || value.status === 'returned') { %>
+                                                        <td> <!-- Some content here if needed for canceled or returned orders --> </td>
+                                                    <% } %>
+                                                </tr>
+                                            <% }) %>
+                                     
+                                        <!-- Table data -->
+                                  
+                           
+                            </tbody>
+                        </table>
+                    </div>
+                <% } else { %>
+                    <div class="col-12 text-center empty-page mb-5">
+                        <!-- Centered content -->
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- Table End -->
+    <div class="container mb-5 ">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="continue__btn">
+                    <a href="/products">Continue Shopping</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Footer Section Begin -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer__about">
+                            <div class="footer__logo">
+                                <a href="#"><img src="/assets/img/footer-logo.png" alt=""></a>
+                            </div>
+                            <p>The customer is at the heart of our unique business model, which includes design.</p>
+                            <a href="#"><img src="/assets/img/payment.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>Shopping</h6>
+                            <ul>
+                                <li><a href="#">Clothing Store</a></li>
+                                <li><a href="#">Trending Shoes</a></li>
+                                <li><a href="#">Accessories</a></li>
+                                <li><a href="#">Sale</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>Shopping</h6>
+                            <ul>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Payment Methods</a></li>
+                                <li><a href="#">Delivary</a></li>
+                                <li><a href="#">Return & Exchanges</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>NewLetter</h6>
+                            <div class="footer__newslatter">
+                                <p>Be the first to know about new arrivals, look books, sales & promos!</p>
+                                <form action="#">
+                                    <input type="text" placeholder="Your email">
+                                    <button type="submit"><span class="icon_mail_alt"></span></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="footer__copyright__text">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            <p>Copyright ©
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script>2020
+                                All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                    aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                    target="_blank">Colorlib</a>
+                            </p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Section End -->
+
+        <!-- Search Begin -->
+        <div class="search-model">
+            <div class="h-100 d-flex align-items-center justify-content-center">
+                <div class="search-close-switch">+</div>
+                <form class="search-model-form">
+                    <input type="text" id="search-input" placeholder="Search here.....">
+                </form>
+            </div>
+        </div>
+        <!-- Search End -->
+
+        <!-- Js Plugins -->
+        <script src="/assets/js/jquery-3.3.1.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
+        <script src="/assets/js/jquery.nice-select.min.js"></script>
+        <script src="/assets/js/jquery.nicescroll.min.js"></script>
+        <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="/assets/js/jquery.countdown.min.js"></script>
+        <script src="/assets/js/jquery.slicknav.js"></script>
+        <script src="/assets/js/mixitup.min.js"></script>
+        <script src="/assets/js/owl.carousel.min.js"></script>
+        <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

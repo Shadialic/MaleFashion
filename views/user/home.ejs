@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Male_Fashion Template">
+    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Male-Fashion </title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+</head>
+
+<body>
+
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__option">
+            <div class="offcanvas__links">
+                <a href="/loginpage">Sign in</a>
+
+            </div>
+
+        </div>
+        <div class="offcanvas__nav__option">
+            <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt=""></a>
+            <a href="/wishlist"><img src="/assets/img/icon/heart.png" alt=""></a>
+            <a href="cart"><img src="/assets/img/icon/cart.png" alt=""> <span>0</span></a>
+            <a href="/userprofile"><img style="width: 2em;" src="/assets/img/icon/download.png" alt=""> </a>
+            <div class="price"></div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__text">
+            <p>Free shipping, 30-day return or refund guarantee.</p>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-7">
+                        <div class="header__top__left">
+                            <p>Free shipping, 30-day return or refund guarantee.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-5">
+                        <div class="header__top__right">
+                            <div class="header__top__links">
+                                <% if (!userData) { %>
+                                    <a href="loginpage">Sign in</a>
+                                    <% } else { %>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="logout">logout</a>
+                                        </li>
+                                        <% } %>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="/assets/img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li class="active"><a href="/">Home</a></li>
+                            <li><a href="/products">Shop</a>
+
+
+                            </li>
+                            <li><a href="/order">Orders</a>
+
+
+                            <li><a href="/contacts">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__nav__option">
+                        <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt=""></a>
+                        <a href="/wishlist"><img src="/assets/img/icon/heart.png" alt=""></a>
+                        <a href="cart"><img src="/assets/img/icon/cart.png" alt=""> <span>0</span></a>
+                        <a href="/userprofile" style="width: 12%;"><img src="/assets/img/icon/download.png" alt=""></a>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Hero Section Begin -->
+    <section class="hero">
+        <div class="hero__slider owl-carousel">
+            <div class="hero__items set-bg" data-setbg="/assets/img/hero/hero-1.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-7 col-md-8">
+                            <div class="hero__text">
+                                <h6>Summer Collection</h6>
+                                <h2>Fall - Winter Collections 2030</h2>
+                                <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
+                                    commitment to exceptional quality.</p>
+                                <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
+                                <div class="hero__social">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__items set-bg" data-setbg="/assets/img/hero/hero-2.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-7 col-md-8">
+                            <div class="hero__text">
+                                <h6>Summer Collection</h6>
+                                <h2>Fall - Winter Collections 2030</h2>
+                                <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
+                                    commitment to exceptional quality.</p>
+                                <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
+                                <div class="hero__social">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Banner Section Begin -->
+    <section class="banner spad" style="background-color: white;">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-7 offset-lg-4">
+                    <div class="banner__item">
+                        <div class="banner__item__pic">
+                            <img src="/productimages/<%=banner[0].image%>" alt="">
+                        </div>
+                        <div class="banner__item__text">
+                            <h2>
+                                <%=banner[0].heading %>
+                            </h2>
+
+                            <a href="/products">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="banner__item banner__item--middle">
+                        <div class="banner__item__pic">
+                            <img src="/productimages/<%=banner[1].image %>" alt="">
+                        </div>
+                        <div class="banner__item__text">
+                            <h2>
+                                <%=banner[1].heading %>
+                            </h2>
+                            <a href="/products">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="banner__item banner__item--last">
+                        <div class="banner__item__pic">
+                            <img src="/productimages/<%=banner[2].image %>" alt="">
+                        </div>
+                        <div class="banner__item__text">
+                            <h2>
+                                <%=banner[2].heading %>
+                            </h2>
+                            <a href="/products">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Banner Section End -->
+
+
+    <section class="latest-product-area pb-40 category-list">
+        <div class="row" style="margin: 13px;">
+            <% if (products.length> 0) { %>
+                <% products.forEach(function(user, index) { %>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12" style="padding: 10px;">
+                        <div class="single-product border-solid-1px black">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="/productimages/<%= user.image[1] %>"
+                                    style="position: relative; background-position: center center; padding-bottom: 100%;">
+
+                                    <ul class="product__hover">
+
+                                        <li> <a onclick="addwish('<%=user._id %>')" class="social-info">
+                                                <img src="/assets/img/icon/heart.png" alt="">
+
+                                            </a></li>
+                                        <li><a href="/detailesproduct?id=<%=user._id %>"><img
+                                                    src="/assets/img/icon/search.png" alt="">
+                                                <span>DetailedProduct</span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <a href="#" onclick="addcart('<%= user._id %>')" class="add-cart">+ Add To Cart</a>
+                                    <h6>
+                                        <%= user.brand %>
+                                    </h6>
+                                    <h6>
+                                        <%= user.productname %>
+                                    </h6>
+                                    <div class="price">
+                                        <h6><strong>₹<%= user.price %>.00</strong></h6>
+                                    </div>
+                                    <h5>
+                                        <%= user.category.category %>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% }) %>
+                        <% } else { %>
+                            <div class="col-12">
+                                <p>User Not Found</p>
+                            </div>
+                            <% } %>
+        </div>
+    </section>
+
+
+
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="/assets/img/footer-logo.png" alt=""></a>
+                        </div>
+                        <p>The customer is at the heart of our unique business model, which includes design.</p>
+                        <a href="#"><img src="/assets/img/payment.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Shopping</h6>
+                        <ul>
+                            <li><a href="#">Clothing Store</a></li>
+                            <li><a href="#">Trending Shoes</a></li>
+                            <li><a href="#">Accessories</a></li>
+                            <li><a href="#">Sale</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Shopping</h6>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Delivary</a></li>
+                            <li><a href="#">Return & Exchanges</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>NewLetter</h6>
+                        <div class="footer__newslatter">
+                            <p>Be the first to know about new arrivals, look books, sales & promos!</p>
+                            <form action="#">
+                                <input type="text" placeholder="Your email">
+                                <button type="submit"><span class="icon_mail_alt"></span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="footer__copyright__text">
+                        <p>Copyright ©
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>2020
+                            All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                target="_blank">Male-fasion</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
+
+    <!-- Js Plugins -->
+    <script src="/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/jquery.nice-select.min.js"></script>
+    <script src="/assets/js/jquery.nicescroll.min.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/js/jquery.countdown.min.js"></script>
+    <script src="/assets/js/jquery.slicknav.js"></script>
+    <script src="/assets/js/mixitup.min.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        const addcart = function (id) {
+            console.log('heliioo');
+            $.ajax({
+                url: "/addtocart",
+                method: 'post',
+                data: {
+                    id: id
+                },
+                success: function (response) {
+                    if (response.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Saved cart!',
+                            text: 'Item added to cart successfully!',
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Please Login',
+                            text: 'Please Login to your account',
+                        });
+                    }
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'An error occurred while making the request.',
+                    });
+                }
+            });
+        };
+    </script>
+    <script>
+        const addwish = function (id) {
+            $.ajax({
+                url: "/addtowishlist",
+                method: 'get',
+                data: {
+                    id: id
+                },
+                success: function (response) {
+                    if (response.status) {
+                        Swal.fire(
+                            'Saved Wishlist!',
+                            'You clicked the button!',
+                            'success'
+                        );
+                    } else {
+                        Swal.fire(
+                            'Product Already in Wishlist!',
+                            'This product is already in your wishlist.',
+                            'info'
+                        );
+                    }
+
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

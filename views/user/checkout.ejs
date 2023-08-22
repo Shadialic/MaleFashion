@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="description" content="Male_Fashion Template">
+   <meta name="keywords" content="Male_Fashion, unica, creative, html">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Male-Fashion </title>
+
+   <!-- Google Font -->
+   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+      rel="stylesheet">
+
+   <!-- Css Styles -->
+   <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css">
+   <link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css">
+   <link rel="stylesheet" href="/assets/css/elegant-icons.css" type="text/css">
+   <link rel="stylesheet" href="/assets/css/magnific-popup.css" type="text/css">
+   <link rel="stylesheet" href="/assets/css/nice-select.css" type="text/css">
+   <link rel="stylesheet" href="/assets/css/owl.carousel.min.css" type="text/css">
+   <link rel="stylesheet" href="/assets/css/slicknav.min.css" type="text/css">
+   <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+   <style>
+      /* Add styling to the .prd-bottom container */
+      .prd-bottom {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         background-color: #f1f1f1;
+         padding: 10px;
+         border-radius: 5px;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Style the social-info anchors */
+      .prd-bottom .social-info {
+         text-decoration: none;
+         color: #333;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         padding: 5px;
+      }
+
+      /* Style the social-info icons */
+      .prd-bottom .social-info span {
+         font-size: 24px;
+      }
+
+      /* Style the hover-text */
+      .prd-bottom .hover-text {
+         margin-top: 5px;
+         font-size: 12px;
+      }
+
+
+      /* Custom CSS to remove the bullet points from the list items */
+      .list-group-item {
+         list-style: none;
+         padding-left: 0;
+      }
+
+      .list-group-item a {
+         text-decoration: none;
+         color: #333;
+      }
+
+      .list-group-item a:hover {
+         text-decoration: underline;
+      }
+   </style>
+</head>
+
+<body style="background-color: white;">
+
+
+   <!-- Offcanvas Menu Begin -->
+   <div class="offcanvas-menu-overlay"></div>
+   <div class="offcanvas-menu-wrapper">
+      <div class="offcanvas__option">
+         <div class="offcanvas__links">
+            <a href="loginpage">Sign in</a>
+            <a href="#">FAQs</a>
+         </div>
+
+      </div>
+      <div class="offcanvas__nav__option">
+         <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt=""></a>
+         <a href="/wishlist"><img src="/assets/img/icon/heart.png" alt=""></a>
+         <a href="#"><img src="/assets/img/icon/cart.png" alt=""> <span>0</span></a>
+
+      </div>
+      <div id="mobile-menu-wrap"></div>
+      <div class="offcanvas__text">
+         <p>Free shipping, 30-day return or refund guarantee.</p>
+      </div>
+   </div>
+   <!-- Offcanvas Menu End -->
+
+   <!-- Header Section Begin -->
+   <header class="header">
+      <div class="header__top" style="background-color: white;">
+
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-3 col-md-3">
+                  <div class="header__logo">
+                     <a href="./index.html"><img src="/assets/img/logo.png" alt=""></a>
+                  </div>
+               </div>
+               <div class="col-lg-6 col-md-6">
+                  <nav class="header__menu mobile-menu">
+                     <ul>
+                        <li><a href="/">Home</a></li>
+                        <li class="active"><a href="/products">Shop</a>
+                        </li>
+                        <li><a href="order">Orders</a>
+                        </li>
+                        <li><a href="/contacts">Contacts</a></li>
+                     </ul>
+                  </nav>
+               </div>
+               <div class="col-lg-3 col-md-3">
+                  <div class="header__nav__option">
+                     <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt=""></a>
+                     <a href="#"><img src="/assets/img/icon/heart.png" alt=""></a>
+                     <a href="cart"><img src="/assets/img/icon/cart.png" alt=""> <span>0</span></a>
+                     <div class="price"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+         </div>
+   </header>
+   <!-- Header Section End -->
+   <section class="breadcrumb-option">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="breadcrumb__text">
+                  <h4>checkout</h4>
+                  <div class="breadcrumb__links">
+                     <a href="/home">Home</a>
+                     <span>checkout</span>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!--================Cart Area =================-->
+   <section class="cart_area">
+      <div class="container">
+         <!-- add Modal -->
+         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Add address</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+                  <div class="modal-body">
+                     <form action="addAddress" class="billing-form" method="post">
+                        <h3 class="mb-4 billing-heading">Billing Details</h3>
+                        <div class="row align-items-end">
+                           <div class="col-12">
+                              <div class="form-group">
+                                 <label for="name">FullName</label>
+                                 <input type="text" class="form-control" name="name" required />
+                              </div>
+                           </div>
+                           <div class="w-100"></div>
+                           <div class="col-6">
+                              <div class="form-group">
+                                 <label for="state">State</label>
+                                 <div class="select-wrap">
+                                    <div class="icon">
+                                       <span class="ion-ios-arrow-down"></span>
+                                    </div>
+                                    <select id="" class="form-control" name="state" required>
+                                       <option value="kerala">kerala</option>
+                                       <option value="Thaminadu">Thaminadu</option>
+                                       <option value="karnadaka">karnadaka</option>
+                                    </select>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="town">Town / City</label>
+                                 <input type="text" class="form-control" name="town" required>
+                              </div>
+                           </div>
+                           <div class="w-100"></div>
+                           <div class="col-12">
+                              <div class="form-group">
+                                 <label for="houseAdress">House Address</label>
+                                 <input type="text" class="form-control" placeholder="House number and street name"
+                                    name="houseAdress" required />
+                              </div>
+                           </div>
+                           <div class="w-100"></div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="pincode">pincode / ZIP *</label>
+                                 <input type="text" class="form-control" name="pincode" required />
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="phone">PhoneNumber</label>
+                                 <input type="text" class="form-control" name="phone" required />
+                              </div>
+                           </div>
+                        </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                     </button>
+                     <button type="submit" class="btn btn-primary">Save changes</button>
+                  </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section class="ftco-section">
+      <form action="" id="place-order" method="post">
+         <div class="container bg-light">
+            <div class="row justify-content-center">
+               <div class="col-xl-10 ftco-animate">
+                  <div class="col-lg-8 col-md-6">
+                     <% address.forEach((value)=> { %>
+                        <div class="form-check mb-2">
+                           <div class="row">
+                              <div class="col-10">
+                                 <div>
+                                    <input class="form-check-input" name="address" type="radio"
+                                       value="<%= value.name %>, <%= value.houseAdress %>, <%= value.town %> <%= value.state %>, <%= value.pincode %>, <%= value.phone %>"
+                                       id="address_<%= value._id %>" required>
+                                    <label class="form-check-label" for="address_<%= value._id %>">
+                                       <%= value.name %>,<br>
+                                          <%= value.houseAdress %>,<br>
+                                             <%= value.town %>,<br>
+                                                <%= value.state %><br>
+                                                   <%= value.pincode %><br>
+                                                      <%= value.phone %>
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-2">
+                                 <button disabled style="background: red;">
+                                    <a href="/delete-address?id=<%= value._id %>" style="color: aliceblue;">Delete</a>
+                                 </button>
+                              </div>
+                              <div class="col-2">
+                                 <button onclick="location.href='/editaddress?id=<%= value._id %>'" type="button"
+                                    data-target="#Modal" style="background: #158ee1f7;">
+                                    Edit
+                                 </button>
+                              </div>
+                           </div>
+                        </div>
+                        <% }) %>
+                  </div>
+
+               </div>
+            </div>
+            <div class="row justify-content-end mt-4">
+               <button type="button" class="primary-btn" data-toggle="modal" data-target="#exampleModal">
+                  Add Address
+               </button>
+            </div>
+         </div>
+
+         <div class="col-6 my-5">
+
+            <div class="input-group">
+               <input type="text" id="code" class="cart-detail cart-total bg-light p-3 p-md-4 form-control"
+                  placeholder="Coupon Code" />
+               <div class="input-group-append">
+                  <a class="genric-btn primary text-light" onclick="applyCoupon($('#code').val())" style="background: black;
+                font-weight: bold;
+                padding: 9px;
+                font-size: 16px; ">Apply
+                     Coupon</a>
+               </div>
+
+            </div>
+
+         </div>
+
+
+         <div class="row mt-5 pt-3 d-flex">
+            <div class="col-md-6 d-flex">
+               <div class="cart-detail cart-total bg-light p-3 p-md-4 w-100">
+                  <h3 class="billing-heading mb-4">Your Orders</h3>
+                  <% users.forEach((product)=> { %>
+                     <ul style="list-style: none;">
+                        <li>
+                           <%= product.productId.productname %>
+                              <a style="width: 30px" class="ml-2">
+                                 <%= product.quantity %>
+                              </a>
+                              <a class="ml-4"><span>
+                                    <%= product.productId.price %>
+                                 </span></a>
+                        </li>
+                     </ul>
+                     <% }) %>
+
+                        <p class="d-flex" style="border-top: solid 1px #0000005e;">
+                           <span>Subtotal :</span>
+                           Rs:
+                           <span id="total" class="ml-4">
+                              <%= total%>
+                           </span>
+                        </p>
+                        <p class="d-flex">
+                           <span>Delivery :</span>
+                           <span>Rs:0.00</span>
+                        </p>
+                        <p class="d-flex">
+                           <span>Wallet :</span>
+                           Rs:
+                           <span id="wallet">
+                              <%=wallet%>
+                           </span>
+                        </p>
+                        <div class="d-flex flex-row justify-content-between">
+                           <span>Discount :</span>
+                           <span id="coupondiscount" style="color:#e5380d"></span>
+                           <p class="text-end"> <a href="/checkout"> Remove coupon </a></p>
+                        </div>
+                        <hr />
+                        <p class="d-flex ">
+                           <span>Total :</span>
+                           Rs:
+                           <span id="total-amount">
+                              <%=total%>
+                           </span>
+                        </p>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="cart-detail bg-light p-3 p-md-4 h-100">
+                  <h3 class="billing-heading mb-4">Payment Method</h3>
+                  <div class="form-group">
+                     <div class="col-md-12">
+                        <div class="radio">
+                           <label><input type="radio" value="cod" name="payment" class="mr-2" checked />
+                              COD</label>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-md-12">
+                        <div class="radio">
+                           <label><input type="radio" value="online" name="payment" class="mr-2" />
+                              Online Payment</label>
+                        </div>
+                     </div>
+                  </div>
+                  <%if(wallet !==0){ %>
+                     <div class="form-group">
+                        <div class="col-md-12">
+                           <div class="radio " id="radio_div">
+                              <label><input type="checkbox" value="wallet" name="wallet" class="mr-2"
+                                    onclick="checkWallet()" />
+                                 Wallet</label>
+                           </div>
+                        </div>
+                     </div>
+                     <% } %>
+                        <% if(typeof message !=='undefined' ){ %>
+                           <p style="color:#fb4e37">
+                              <%= message %>
+                           </p>
+                           <% } %>
+                              <button type="submit" class="genric-btn primary">Place an order</button>
+               </div>
+            </div>
+         </div>
+      </form>
+
+   </section>
+
+
+
+   <!-- Footer Section Begin -->
+   <footer class="footer">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+               <div class="footer__about">
+                  <div class="footer__logo">
+                     <a href="#"><img src="/assets/img/footer-logo.png" alt=""></a>
+                  </div>
+                  <p>The customer is at the heart of our unique business model, which includes design.</p>
+                  <a href="#"><img src="/assets/img/payment.png" alt=""></a>
+               </div>
+            </div>
+            <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+               <div class="footer__widget">
+                  <h6>Shopping</h6>
+                  <ul>
+                     <li><a href="#">Clothing Store</a></li>
+                     <li><a href="#">Trending Shoes</a></li>
+                     <li><a href="#">Accessories</a></li>
+                     <li><a href="#">Sale</a></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6">
+               <div class="footer__widget">
+                  <h6>Shopping</h6>
+                  <ul>
+                     <li><a href="#">Contact Us</a></li>
+                     <li><a href="#">Payment Methods</a></li>
+                     <li><a href="#">Delivary</a></li>
+                     <li><a href="#">Return & Exchanges</a></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+               <div class="footer__widget">
+                  <h6>NewLetter</h6>
+                  <div class="footer__newslatter">
+                     <p>Be the first to know about new arrivals, look books, sales & promos!</p>
+                     <form action="#">
+                        <input type="text" placeholder="Your email">
+                        <button type="submit"><span class="icon_mail_alt"></span></button>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-12 text-center">
+               <div class="footer__copyright__text">
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                  <p>Copyright ©
+                     <script>
+                        document.write(new Date().getFullYear());
+                     </script>2020
+                     All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i>
+                     by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                  </p>
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <!-- Footer Section End -->
+
+   <!-- Search Begin -->
+   <div class="search-model">
+      <div class="h-100 d-flex align-items-center justify-content-center">
+         <div class="search-close-switch">+</div>
+         <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Search here.....">
+         </form>
+      </div>
+   </div>
+   <!-- Search End -->
+
+   <!-- Js Plugins -->
+   <script src="/assets/js/jquery-3.3.1.min.js"></script>
+   <script src="/assets/js/bootstrap.min.js"></script>
+   <script src="/assets/js/jquery.nice-select.min.js"></script>
+   <script src="/assets/js/jquery.nicescroll.min.js"></script>
+   <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+   <script src="/assets/js/jquery.countdown.min.js"></script>
+   <script src="/assets/js/jquery.slicknav.js"></script>
+   <script src="/assets/js/mixitup.min.js"></script>
+   <script src="/assets/js/owl.carousel.min.js"></script>
+   <script src="/assets/js/main.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+   <script>
+      function applyCoupon(code) {
+        let amount = document.getElementById("total").innerHTML
+        console.log(amount);
+        $.ajax({
+          url: '/applycoupon',
+          method: 'post',
+          data: {
+            code: code,
+            amount: amount
+          },
+          success: (response) => {
+            console.log(response);
+            if (response.invalid) {
+              swal("Oops!", "Coupon not found.", "error");
+            } else if (response.expire) {
+              swal("Oops!", "Coupon has expired.", "error");
+            } else if (response.cartamount) {
+              swal("Oops!", "Minimum Amount.", "error");
+            } else if (response.user) {
+              swal("Oops!", "Coupon used", "error");
+            }
+            else if (response.couponokey) {
+              document.getElementById("coupondiscount").innerHTML = `${response.discountvalue}% <p style="color:green">Discount added</p>`;
+              document.getElementById("total-amount").innerHTML = `${response.distotal}`
+              swal("Success!", "Coupon Added.", "success");
+            }
+  
+  
+          }
+        })
+  
+   }
+  </script>
+
+   <script>
+      $(document).ready(function () {
+         var quantitiy = 0;
+         $(".quantity-right-plus").click(function (e) {
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            var quantity = parseInt($("#quantity").val());
+
+            // If is not undefined
+
+            $("#quantity").val(quantity + 1);
+
+            // Increment
+         });
+
+         $(".quantity-left-minus").click(function (e) {
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            var quantity = parseInt($("#quantity").val());
+
+            // If is not undefined
+
+            // Increment
+            if (quantity > 0) {
+               $("#quantity").val(quantity - 1);
+            }
+         });
+      });
+   </script>
+   
+   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+   <script>
+      $("#place-order").submit((e) => {
+         const allTotal = document.getElementById("total").innerHTML;
+         const walletPlace = document.getElementById("wallet").innerHTML;
+         const amount = document.getElementById("total-amount").innerHTML;
+         const address = $("input[name=address]:checked").val();
+         const paymentMethod = $("input[name=payment]:checked").val();
+         e.preventDefault();
+         $.ajax({
+            url: "/place-order", // Your server endpoint for order processing
+            method: 'post',
+            data: {
+               total: amount,
+               address: address,
+               payment: paymentMethod,
+               wallet: walletPlace
+            },
+            success: (response) => {
+               if (response.codSuccess == true) {
+                  console.log('Cash on Delivery order placed');
+                  location.href = "orderplaced";
+               } else if (response.codFailed == true) {
+                  swal("Oops!", "Add Address", "error");
+               } else {
+                  // Online payment with Razorpay
+                  razorPay(response.order);
+               }
+            }
+         })
+      });
+
+      function razorPay(order) {
+         var options = {
+            "key": "rzp_test_3PADivZ3M9iob3", // Use the environment variable for the key_id
+            "amount": order.amount,
+            "currency": "INR",
+            "name": "Male fashion",
+            "description": "Test Transaction",
+            "image": "img/fav.png",
+            "order_id": order.id,
+            "handler": function (response) {
+               verifyPayment(response, order);
+            },
+            "prefill": {
+               "name": "Gaurav Kumar",
+               "email": "gaurav.kumar@example.com",
+               "contact": "9000090000"
+            },
+            "notes": {
+               "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+               "color": "#3399cc"
+            }
+         };
+
+         var rzp1 = new Razorpay(options);
+         rzp1.open();
+      }
+
+      function verifyPayment(payment, order) {
+         $.ajax({
+            url: "/verifyPayment", // Your server endpoint for payment verification
+            method: 'post',
+            data: {
+               payment,
+               order
+            },
+            success: (response) => {
+               if (response.success == true) {
+                  console.log('Payment successful');
+                  window.location.href = "orderplaced";
+               } else if (response.onlineSuccess) {
+                  Swal.fire({
+                     icon: 'error',
+                     title: 'Payment failed',
+                     showConfirmButton: false,
+                     timer: 1500
+                  });
+               } else {
+                  // Handle other possible response scenarios
+                  Swal.fire({
+                     icon: 'error',
+                     title: 'Payment verification failed',
+                     showConfirmButton: false,
+                     timer: 1500
+                  });
+               }
+            },
+            error: (error) => {
+               // Handle AJAX request errors
+               console.error(error);
+               Swal.fire({
+                  icon: 'error',
+                  title: 'Payment verification failed',
+                  showConfirmButton: false,
+                  timer: 1500
+               });
+            }
+         });
+      }
+   </script>
+   <script>
+      function checkWallet() {
+         let walletPlace = document.getElementById("wallet")
+         let amount = document.getElementById("total-amount").innerHTML
+         let totalAmount = document.getElementById("total-amount")
+         let radioDiv = document.getElementById("radio_div")
+         $.ajax({
+            url: '/checkWallet',
+            method: 'post',
+            success: (response) => {
+               if (response.success) {
+                  console.log("success");
+
+
+
+                  if (response.wallet > amount) {
+                     response.wallet = response - amount
+                     walletPlace.innerHTML = response.walleta
+                  }
+                  // let test = amount - response.walleta
+                  // if (test < 0) {
+                  //   totalAmount.innerHTML = 10
+                  //   radioDiv.innerHTML = "You have pay minimum ₹10"
+                  // } else {
+                  //   totalAmount.innerHTML = test
+                  //   radioDiv.classList.add("d-none");
+                  // }
+               } else {
+                  console.log("fail");
+               }
+            }
+         })
+      }
+   </script>
+
+</body>
+
+</html>

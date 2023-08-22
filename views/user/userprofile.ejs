@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Male_Fashion Template">
+    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Male-Fashion </title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Add styling to the .prd-bottom container */
+        .prd-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style the social-info anchors */
+        .prd-bottom .social-info {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5px;
+        }
+
+        /* Style the social-info icons */
+        .prd-bottom .social-info span {
+            font-size: 24px;
+        }
+
+        /* Style the hover-text */
+        .prd-bottom .hover-text {
+            margin-top: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body style="background-color: white;">
+
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__option">
+            <div class="offcanvas__links">
+                <a href="/loginpage">Sign in</a>
+
+            </div>
+
+        </div>
+        <div class="offcanvas__nav__option">
+            <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt=""></a>
+            <a href="/wishlist"><img src="/assets/img/icon/heart.png" alt=""></a>
+            <a href="cart"><img src="/assets/img/icon/cart.png" alt=""> <span>0</span></a>
+            <a href="/userprofile"><img style="width: 2em;" src="/assets/img/icon/download.png" alt=""> </a>
+            <div class="price"></div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="/assets/img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/products">Shop</a>
+
+
+                            </li>
+                            <li><a href="/order">Orders</a>
+
+
+                            <li><a href="/contacts">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__nav__option">
+                        <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt=""></a>
+                        <a href="/wishlist"><img src="/assets/img/icon/heart.png" alt=""></a>
+                        <a href="cart"><img src="/assets/img/icon/cart.png" alt=""> <span>0</span></a>
+                        <a href="/userprofile" style="width: 12%;"><img src="/assets/img/icon/download.png" alt=""></a>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+    <section class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h4>profile</h4>
+                        <div class="breadcrumb__links">
+                            <a href="/home">Home</a>
+                            <span>profile</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--================Cart Area =================-->
+    <div class="container-xl px-4 mt-5">
+        <hr class="mt-0 mb-4">
+        <div class="row">
+            <div class="col-xl-4">
+                <!-- Profile picture card-->
+                <div class="card mb-4 mb-xl-0">
+                    <div class="card-header">Profile Picture</div>
+                    <div class="card-body text-center">
+
+                        <img class="img-account-profile rounded-circle mb-2" src="/assets/img/icon/download (1).png"
+                            alt="">
+
+                        <div class="small font-italic text-muted mb-4"></div>
+
+                        <button class="btn btn-dark btn-lg" type="button">Upload new image</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8">
+                <!-- Account details card-->
+                <div class="card mb-4">
+                    <div class="card-header">Account Details</div>
+                    <div class="card-body">
+
+
+                        <form action="/update-profile" method="post" class="d-flex">
+                            <div class="col-7">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Full Name</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="username" class="input"
+                                                    value="<%= data.username %>" required>
+                                                <input type="hidden" name="id" value="<%= data._id %>">
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Email</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <input type="email" name="email" class="input" value="<%= data.email %>"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Mobile</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <input type="number" name="mobile" class="input"
+                                                    value="<%= data.mobile %>" required>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+                                        <div class="row">
+                                            <a href="/update?id=<%= data._id %>" class="update-link"
+                                                style="color: black;">Update</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div style="padding: 16px; background:#F3F2F7;">
+            <h5 class="text-start wallet mb-3"><strong>Wallet : ₹<%= data.wallet %></strong>
+                <h4>invite your friends to Male-fasion</h4>
+                <br>
+                <div class="code-container">
+                    <h5>refferal code: <span class="code-value">
+                            <%=reffrelcode%>
+                        </span>
+                        <i class="far fa-copy" onclick="copyCode()"></i>
+
+                    </h5>
+                </div>
+
+                <style>
+                    .code-container {
+                        border: 1px solid #ccc;
+                        padding: 10px;
+                        border-radius: 5px;
+                        display: inline-block;
+                    }
+
+                    .code-value {
+                        background-color: #f2f2f2;
+                        padding: 3px 8px;
+                        border: 1px solid #ddd;
+                        border-radius: 3px;
+                        font-family: "Courier New", monospace;
+                    }
+
+                    .far.fa-copy {
+                        margin-left: 10px;
+                        color: #999;
+                        cursor: pointer;
+                        transition: color 0.3s ease-in-out;
+                    }
+
+                    .far.fa-copy:hover {
+                        color: #333;
+                    }
+                </style>
+                <!-- The button used to copy the text -->
+
+                <br>
+
+
+
+
+
+
+                <!-- Replace "YOUR_REFERRAL_CODE" with the actual referral code -->
+                <!-- <p>Use my referral code: <a href="<%= inviteLink %>">Join Now</a></p>
+ -->
+
+
+
+                <!-- <p>hello</p><a href="whatsapp://send?text=Join%20using%20my%20referral%20code%20<%=reffrelcode%>:%20https%3A%2F%2F<%= inviteLink %>">Share on WhatsApp</a> -->
+                <p>invite your frindes <i class="bi bi-whatsapp"></i><a
+                        href="whatsapp://send?text= http://localhost:3000<%= inviteLink %>/<%=reffrelcode%> Join%20using%20my%20referral%20code%20"><span
+                            class="fa-stack fa-lg">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-whatsapp fa-stack-1x fa-inverse" style="color: black;
+            background: white;"></i>
+                        </span></a></p>
+                <!-- Example of adding the WhatsApp icon using Font Awesome -->
+        </div>
+
+
+
+    </div>
+    </div>
+
+
+    <div class="container col-lg-9 py-5">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col">
+                <h3 style="font-family: 'Font';
+            ">Wallet History</h3>
+                <table class="table table-hover " style="border-radius: 5px; background-color: #88c8bc; color: #fff;">
+                    <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Transaction</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (typeof history !=='undefined' ) { history.forEach( (history,i)=>{ %>
+                            <tr>
+                                <th scope="row">
+                                    <%= i+1 %>
+                                </th>
+                                <td>
+                                    <%= history.date%>
+                                </td>
+                                <td>
+                                    <%= history.peramount %>
+                                </td>
+                                <td>
+                                    <%= history.transaction %>
+                                </td>
+
+                            </tr>
+                            <% })} else { %>
+                                <tr>
+                                    <td>
+                                        No Wallet Transaction Done.
+                                    </td>
+                                </tr>
+                                <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <form action="" id="place-order" method="post">
+        <div class="container bg-light">
+            <div class="row justify-content-center">
+                <div class="col-xl-10 ftco-animate">
+                    <div class="col-lg-8 col-md-6">
+                        <% address.forEach((value)=> { %>
+                            <div class="form-check mb-2">
+                                <div class="row">
+                                    <div class="col-10">
+                                        <div>
+                                            <input class="form-check-input" name="address" type="radio"
+                                                value="<%= value.name %>, <%= value.houseAdress %>, <%= value.town %> <%= value.state %>, <%= value.pincode %>, <%= value.phone %>"
+                                                id="address_<%= value._id %>" required>
+                                            <label class="form-check-label" for="address_<%= value._id %>">
+                                                <%= value.name %>,<br>
+                                                    <%= value.houseAdress %>,<br>
+                                                        <%= value.town %>,<br>
+                                                            <%= value.state %><br>
+                                                                <%= value.pincode %><br>
+                                                                    <%= value.phone %>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <button disabled style="background: red;">
+                                            <a href="/delete-address?id=<%= value._id %>"
+                                                style="color: aliceblue;">Delete</a>
+                                        </button>
+                                    </div>
+                                    <div class="col-2 ">
+                                        <button onclick="location.href='/editaddress?id=<%= value._id %>'" type="button"
+                                            data-target="#Modal" style="background: #158ee1f7;">
+                                            Edit
+                                        </button>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }) %>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-end mt-4">
+            <button type="button" class="primary-btn" data-toggle="modal" data-target="#exampleModal">
+                Add Address
+            </button>
+        </div>
+        <br>
+        <br>
+        <!--================End Cart Area =================-->
+
+        <!-- Footer Section Begin -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer__about">
+                            <div class="footer__logo">
+                                <a href="#"><img src="/assets/img/footer-logo.png" alt=""></a>
+                            </div>
+                            <p>The customer is at the heart of our unique business model, which includes design.</p>
+                            <a href="#"><img src="/assets/img/payment.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>Shopping</h6>
+                            <ul>
+                                <li><a href="#">Clothing Store</a></li>
+                                <li><a href="#">Trending Shoes</a></li>
+                                <li><a href="#">Accessories</a></li>
+                                <li><a href="#">Sale</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>Shopping</h6>
+                            <ul>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Payment Methods</a></li>
+                                <li><a href="#">Delivary</a></li>
+                                <li><a href="#">Return & Exchanges</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>NewLetter</h6>
+                            <div class="footer__newslatter">
+                                <p>Be the first to know about new arrivals, look books, sales & promos!</p>
+                                <form action="#">
+                                    <input type="text" placeholder="Your email">
+                                    <button type="submit"><span class="icon_mail_alt"></span></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="footer__copyright__text">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            <p>Copyright ©
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script>2020
+                                All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                    aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                    target="_blank">Colorlib</a>
+                            </p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Section End -->
+
+        <!-- Search Begin -->
+        <div class="search-model">
+            <div class="h-100 d-flex align-items-center justify-content-center">
+                <div class="search-close-switch">+</div>
+                <form class="search-model-form">
+                    <input type="text" id="search-input" placeholder="Search here.....">
+                </form>
+            </div>
+        </div>
+        <!-- Search End -->
+
+        <!-- Js Plugins -->
+        <script src="/assets/js/jquery-3.3.1.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
+        <script src="/assets/js/jquery.nice-select.min.js"></script>
+        <script src="/assets/js/jquery.nicescroll.min.js"></script>
+        <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="/assets/js/jquery.countdown.min.js"></script>
+        <script src="/assets/js/jquery.slicknav.js"></script>
+        <script src="/assets/js/mixitup.min.js"></script>
+        <script src="/assets/js/owl.carousel.min.js"></script>
+        <script src="/assets/js/main.js"></script>
+        <script>
+            function copyCode() {
+                const codeValue = document.querySelector('.code-value');
+                const textArea = document.createElement('textarea');
+                textArea.value = codeValue.textContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Code copied to clipboard!');
+            }
+        </script>
+
+
+
+
+
+
+</body>
+
+</html>
