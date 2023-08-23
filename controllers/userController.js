@@ -113,7 +113,7 @@ const sendOTP = async (username, email, otp,) => {
 
 
 const insertUser = async (req, res) => {
-  console.log(req.params.referralCode,'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+
   try {
 
     const userData = {

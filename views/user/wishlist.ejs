@@ -82,67 +82,66 @@
 
 
     <!-- Offcanvas Menu Begin -->
-<div class="offcanvas-menu-overlay"></div>
-<div class="offcanvas-menu-wrapper">
-    <div class="offcanvas__option">
-        <div class="offcanvas__links">
-            <a href="/loginpage">Sign in</a>
-          
-        </div>
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__option">
+            <div class="offcanvas__links">
+                <a href="/loginpage">Sign in</a>
 
-    </div>
-    <div class="offcanvas__nav__option">
-        <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt=""></a>
-        <a href="/wishlist"><img src="/assets/img/icon/heart.png" alt=""></a>
-        <a href="cart"><img src="/assets/img/icon/cart.png" alt=""> <span>0</span></a>
-        <a href="/userprofile"><img style="width: 2em;" src="/assets/img/icon/download.png" alt=""> </a>
-        <div class="price"></div>
-    </div>
-    <div id="mobile-menu-wrap"></div>
-</div>
-<!-- Offcanvas Menu End -->
-
-<!-- Header Section Begin -->
-<header class="header">
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-3">
-                <div class="header__logo">
-                    <a href="./index.html"><img src="/assets/img/logo.png" alt=""></a>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <nav class="header__menu mobile-menu">
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/products">Shop</a>
-
-
-                        </li>
-                        <li><a href="/order">Orders</a>
-
-
-                        <li><a href="/contacts">Contacts</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="col-lg-3 col-md-3">
-                <div class="header__nav__option">
-                    <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt=""></a>
-                    <a href="/wishlist"><img src="/assets/img/icon/heart.png" alt=""></a>
-                    <a href="cart"><img src="/assets/img/icon/cart.png" alt=""> <span>0</span></a>
-                    <a href="/userprofile" style="width: 12%;"><img src="/assets/img/icon/download.png" alt="" ></a>
-
-
-
-                </div>
             </div>
         </div>
-        <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        <div class="offcanvas__nav__option">
+            <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt=""></a>
+            <a href="/wishlist"><img src="/assets/img/icon/heart.png" alt=""></a>
+            <a href="cart"><img src="/assets/img/icon/cart.png" alt=""> <span>0</span></a>
+            <a href="/userprofile"><img style="width: 2em;" src="/assets/img/icon/download.png" alt=""> </a>
+            <div class="price"></div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
     </div>
-</header>
-<!-- Header Section End -->
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="/assets/img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/products">Shop</a>
+
+
+                            </li>
+                            <li><a href="/order">Orders</a>
+
+
+                            <li><a href="/contacts">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__nav__option">
+                        <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt=""></a>
+                        <a href="/wishlist"><img src="/assets/img/icon/heart.png" alt=""></a>
+                        <a href="cart"><img src="/assets/img/icon/cart.png" alt=""> <span>0</span></a>
+                        <a href="/userprofile" style="width: 12%;"><img src="/assets/img/icon/download.png" alt=""></a>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
     <section class="breadcrumb-option">
         <div class="container">
             <div class="row">
@@ -151,7 +150,7 @@
                         <h4>Wishlist</h4>
                         <div class="breadcrumb__links">
                             <a href="/">Home</a>
-                           
+
                             <span>Wishlist</span>
                         </div>
                     </div>
@@ -196,17 +195,21 @@
                                                 <%=product.productId.price%>
                                             </td>
                                             <td class="cart__close">
-                                                <a href="#" class="genric-btn danger circle" id="add" onclick="addcart('<%= product.productId._id%>')">
-                                                    <i class="fa fa-shopping-cart" style="color: #111111; background: #f3f2ee;"></i>
+                                                <a href="#" class="genric-btn danger circle" id="add"
+                                                    onclick="addcart('<%= product.productId._id%>')">
+                                                    <i class="fa fa-shopping-cart"
+                                                        style="color: #111111; background: #f3f2ee;"></i>
                                                 </a>
                                             </td>
                                             <td class="cart__close">
-                                                <a href="#" class="genric-btn danger circle" id="delete" onclick="deletewhishlist('<%= product.productId._id%>')">
-                                                    <i class="fa fa-close" style="background: #f3f2ee; color: black;"></i>
+                                                <a href="#" class="genric-btn danger circle" id="delete"
+                                                    onclick="deletewhishlist('<%= product.productId._id%>')">
+                                                    <i class="fa fa-close"
+                                                        style="background: #f3f2ee; color: black;"></i>
                                                 </a>
                                             </td>
                                         </tr>
-                                       
+
 
 
 
@@ -350,26 +353,26 @@
 
     <script>
         const addcart = function (id) {
-			$.ajax({
-				url: "/addtocart",
-				method: 'post',
-				data: {
-					id: id
-				},
-				success: function (response) {
-					if(response.success){
-						Swal.fire(
-							'Saved cart!',
-							'You clicked the button!',
-							'success'
-						)
-					}else{
-						 swal.fire("please Login to your account")
-					}
-				}
-					
-			})
-		}
+            $.ajax({
+                url: "/addtocart",
+                method: 'post',
+                data: {
+                    id: id
+                },
+                success: function (response) {
+                    if (response.success) {
+                        Swal.fire(
+                            'Saved cart!',
+                            'You clicked the button!',
+                            'success'
+                        )
+                    } else {
+                        swal.fire("please Login to your account")
+                    }
+                }
+
+            })
+        }
         function decrementQtyAndUpdate(userId, productId) {
             const inputElem = document.getElementById(productId);
             inputElem.stepDown();
