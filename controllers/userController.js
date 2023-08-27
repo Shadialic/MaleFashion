@@ -53,12 +53,12 @@ const loadHome = async (req, res) => {
   }
 };
 
+
 const OTP = otpGen();
 const reffrelcodes = reffrelcodeGen();
-const reffrelcode = reffrelcodes[0]
+const reffrelcode = reffrelcodes[0];
 
 
-let userData;
 
 const loadSignup = async (req, res) => {
   try {
@@ -71,11 +71,9 @@ const loadSignup = async (req, res) => {
     } else {
       res.render('signup')
     }
-
   } catch (error) {
     console.log(error.message);
   }
-
 }
 
 const sendOTP = async (username, email, otp,) => {
@@ -115,7 +113,6 @@ const sendOTP = async (username, email, otp,) => {
 const insertUser = async (req, res) => {
 
   try {
-
     const userData = {
       username: req.body.username,
       mobile: req.body.mobile,
@@ -123,11 +120,11 @@ const insertUser = async (req, res) => {
       password: req.body.password,
       userreferralCode: req.params.referralCode
     }
-
-
     req.session.userData = userData
     req.session.otp = OTP;
+
     sendOTP(userData.username, userData.email, OTP);
+   
     res.redirect('/userotp');
 
 
@@ -140,7 +137,10 @@ const loadOTP = async (req, res) => {
 
   try {
 
-    res.render('userotp', { email: req.session.email });
+    const userData=req.session.userData;
+
+    res.render('userotp', { email: userData.email });
+
 
   } catch (error) {
     console.log('loadOTP method', error.message);
@@ -166,7 +166,6 @@ const verifyOTP = async (req, res) => {
   try {
 
     const otp = req.session.otp;
-    console.log(OTP, "----------", otp);
 
     function referalchecking() {
       const reffrelcodes = reffrelcodeGen();
@@ -202,7 +201,7 @@ const verifyOTP = async (req, res) => {
       if (checkuser) {
         const user = await User.findOne({ email: checkemail })
 
-        user.wallet = 50
+        user.wallet = 50;
         const userData = await user.save();
       }
 

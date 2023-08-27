@@ -26,7 +26,7 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
    <style>
       /* Add styling to the .prd-bottom container */
       .prd-bottom {
@@ -301,7 +301,6 @@
                </div>
 
             </div>
-
          </div>
 
 
@@ -396,7 +395,6 @@
             </div>
          </div>
       </form>
-
    </section>
 
 
@@ -452,7 +450,6 @@
          <div class="row">
             <div class="col-lg-12 text-center">
                <div class="footer__copyright__text">
-                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                   <p>Copyright ©
                      <script>
                         document.write(new Date().getFullYear());
@@ -460,7 +457,6 @@
                      All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i>
                      by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                   </p>
-                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                </div>
             </div>
          </div>
@@ -497,71 +493,60 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
    <script>
       function applyCoupon(code) {
-        let amount = document.getElementById("total").innerHTML
-        console.log(amount);
-        $.ajax({
-          url: '/applycoupon',
-          method: 'post',
-          data: {
-            code: code,
-            amount: amount
-          },
-          success: (response) => {
-            console.log(response);
-            if (response.invalid) {
-              swal("Oops!", "Coupon not found.", "error");
-            } else if (response.expire) {
-              swal("Oops!", "Coupon has expired.", "error");
-            } else if (response.cartamount) {
-              swal("Oops!", "Minimum Amount.", "error");
-            } else if (response.user) {
-              swal("Oops!", "Coupon used", "error");
+         let amount = document.getElementById("total").innerHTML
+         console.log(amount);
+         $.ajax({
+            url: '/applycoupon',
+            method: 'post',
+            data: {
+               code: code,
+               amount: amount
+            },
+            success: (response) => {
+               console.log(response);
+               if (response.invalid) {
+                  swal("Oops!", "Coupon not found.", "error");
+               } else if (response.expire) {
+                  swal("Oops!", "Coupon has expired.", "error");
+               } else if (response.cartamount) {
+                  swal("Oops!", "Minimum Amount.", "error");
+               } else if (response.user) {
+                  swal("Oops!", "Coupon used", "error");
+               }
+               else if (response.couponokey) {
+                  document.getElementById("coupondiscount").innerHTML = `${response.discountvalue}% <p style="color:green">Discount added</p>`;
+                  document.getElementById("total-amount").innerHTML = `${response.distotal}`
+                  swal("Success!", "Coupon Added.", "success");
+               }
+
+
             }
-            else if (response.couponokey) {
-              document.getElementById("coupondiscount").innerHTML = `${response.discountvalue}% <p style="color:green">Discount added</p>`;
-              document.getElementById("total-amount").innerHTML = `${response.distotal}`
-              swal("Success!", "Coupon Added.", "success");
-            }
-  
-  
-          }
-        })
-  
-   }
-  </script>
+         })
+
+      }
+   </script>
 
    <script>
       $(document).ready(function () {
          var quantitiy = 0;
          $(".quantity-right-plus").click(function (e) {
-            // Stop acting like a button
-            e.preventDefault();
-            // Get the field name
-            var quantity = parseInt($("#quantity").val());
-
-            // If is not undefined
-
-            $("#quantity").val(quantity + 1);
-
-            // Increment
+            e.preventDefault();      
+            var quantity = parseInt($("#quantity").val());         
+            $("#quantity").val(quantity + 1);    
          });
 
          $(".quantity-left-minus").click(function (e) {
-            // Stop acting like a button
+           
             e.preventDefault();
-            // Get the field name
+           
             var quantity = parseInt($("#quantity").val());
-
-            // If is not undefined
-
-            // Increment
             if (quantity > 0) {
                $("#quantity").val(quantity - 1);
             }
          });
       });
    </script>
-   
+
    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
    <script>
@@ -573,7 +558,7 @@
          const paymentMethod = $("input[name=payment]:checked").val();
          e.preventDefault();
          $.ajax({
-            url: "/place-order", // Your server endpoint for order processing
+            url: "/place-order", 
             method: 'post',
             data: {
                total: amount,
@@ -588,7 +573,7 @@
                } else if (response.codFailed == true) {
                   swal("Oops!", "Add Address", "error");
                } else {
-                  // Online payment with Razorpay
+
                   razorPay(response.order);
                }
             }
@@ -644,7 +629,7 @@
                      timer: 1500
                   });
                } else {
-                  // Handle other possible response scenarios
+
                   Swal.fire({
                      icon: 'error',
                      title: 'Payment verification failed',
@@ -654,7 +639,7 @@
                }
             },
             error: (error) => {
-               // Handle AJAX request errors
+
                console.error(error);
                Swal.fire({
                   icon: 'error',
