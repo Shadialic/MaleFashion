@@ -1,7 +1,7 @@
 const User = require('../models/userModels');
 const bcrypt = require('bcrypt');
 const { otpGen } = require('../controllers/generateOtp')
-const {reffrelcodeGen} =require('../controllers/referral')
+const { reffrelcodeGen } = require('../controllers/referral')
 const Product = require('../models/productModel');
 const Category = require('../models/categoryModel');
 const Address = require('../models/addressModel')
@@ -42,12 +42,12 @@ const loadHome = async (req, res) => {
     } else {
       userData = false;
     }
-    
+
     const data = await Product.find();
     const bannerData = await Banner.find();
-   
-    
-    res.render('home', { userData, banner: bannerData, products: data }); 
+
+
+    res.render('home', { userData, banner: bannerData, products: data });
   } catch (error) {
     console.log(error.message);
   }
@@ -62,20 +62,20 @@ let userData;
 
 const loadSignup = async (req, res) => {
   try {
-   
-    const referralCode = req.params.referralCode;
-  if(referralCode != undefined){
-        
-    res.render('signup', { referralCode });
 
-  }else{
-    res.render('signup')
-  }
+    const referralCode = req.params.referralCode;
+    if (referralCode != undefined) {
+
+      res.render('signup', { referralCode });
+
+    } else {
+      res.render('signup')
+    }
 
   } catch (error) {
     console.log(error.message);
   }
- 
+
 }
 
 const sendOTP = async (username, email, otp,) => {
@@ -121,9 +121,9 @@ const insertUser = async (req, res) => {
       mobile: req.body.mobile,
       email: req.body.email,
       password: req.body.password,
-      userreferralCode: req.params.referralCode 
+      userreferralCode: req.params.referralCode
     }
-   
+
 
     req.session.userData = userData
     req.session.otp = OTP;
@@ -150,7 +150,7 @@ const loadOTP = async (req, res) => {
 const resendOTP = async (req, res) => {
   try {
     const { email, username } = req.session.userData;
-    const newOTP = otpGen(); 
+    const newOTP = otpGen();
     req.session.otp = newOTP;
 
     sendOTP(username, email, newOTP);
@@ -167,49 +167,43 @@ const verifyOTP = async (req, res) => {
 
     const otp = req.session.otp;
     console.log(OTP, "----------", otp);
-   
-    function referalchecking(){
+
+    function referalchecking() {
       const reffrelcodes = reffrelcodeGen();
       reffrelcode = reffrelcodes[0]
       return reffrelcode;
     }
 
-    const referalcheck=await User.findOne({referral:reffrelcode})
+    const referalcheck = await User.findOne({ referral: reffrelcode })
     let referrals
-    if(referalcheck){
+    if (referalcheck) {
       referalchecking()
-    }else{
+    } else {
 
-    referrals=reffrelcode
+      referrals = reffrelcode
     }
 
 
     if (otp == OTP) {
-      const { username, email, mobile, password,userreferralCode } = req.session.userData;
-      
-      let checkuser= await User.findOne({referral:userreferralCode});
-    let checkemail = email
+      const { username, email, mobile, password, userreferralCode } = req.session.userData;
+
+      let checkuser = await User.findOne({ referral: userreferralCode });
+      let checkemail = email
       const secPassword = await securePassword(password);
-
-      console.log(referrals)
       const user = new User({
-
         mobile: mobile,
         username: username,
         email: email,
         password: secPassword,
         referral: referrals,
         is_admin: 0,
-       
       });
-    
-
       const userData = await user.save();
-      if(checkuser){
-        const user=await User.findOne({email:checkemail})
+      if (checkuser) {
+        const user = await User.findOne({ email: checkemail })
 
-        user.wallet =50
-      const userData = await user.save();
+        user.wallet = 50
+        const userData = await user.save();
       }
 
       if (userData) {
@@ -323,12 +317,12 @@ const forgotPassword = (req, res) => {
 const forgotPass = async (req, res) => {
   try {
     const userEmail = req.body.email;
-    const oneTimePin = otpGen(); 
+    const oneTimePin = otpGen();
     req.session.userMail = userEmail;
-    req.session.oneTimePin = oneTimePin; 
+    req.session.oneTimePin = oneTimePin;
 
     forgotpasswordotp(userEmail, oneTimePin);
-    res.render('forotp', { message: 'OTP sent successfully' }); 
+    res.render('forotp', { message: 'OTP sent successfully' });
   } catch (err) {
     console.log(err);
   }
@@ -346,7 +340,7 @@ const updatePassword = (req, res) => {
 
 const updatePass = async (req, res) => {
   try {
-    const email = req.session.userMail; 
+    const email = req.session.userMail;
     const password = req.body.password;
     const hashPass = await securePassword(password);
     await User.updateOne({ email: email }, { $set: { password: hashPass } }); // Use email from session
@@ -358,7 +352,7 @@ const updatePass = async (req, res) => {
 const forgotSubmit = (req, res) => {
   const oneTimePin = otpGen();
   const { email } = req.body;
-  forgotpasswordotp(email, oneTimePin); 
+  forgotpasswordotp(email, oneTimePin);
   req.session.pass = oneTimePin;
   res.render("forotp");
 };
@@ -367,7 +361,7 @@ const passForgotOtp = async (req, res) => {
   try {
     const { val1, val2, val3, val4, val5, val6 } = req.body;
     const formOtp = Number(val1 + val2 + val3 + val4 + val5 + val6);
-    const storedOtp = req.session.oneTimePin; 
+    const storedOtp = req.session.oneTimePin;
 
     if (formOtp == storedOtp) {
       res.render('updatepass', { message: 'OTP verified' });
@@ -483,7 +477,7 @@ const listProducts = async (req, res) => {
     const offers = await offerSchema.find({ status: 'Active', baseCategory: data._id, endDate: { $gte: new Date() }, startDate: { $lte: new Date() } }).populate('category').sort({ discountPercentage: 1 })
     const id = req.query.id;
     const datas = await Product.findById(id).populate("category");
-    
+
 
     res.render("products", {
       user: data,
@@ -514,7 +508,7 @@ const detailproduct = async (req, res) => {
   try {
     const id = req.query.id;
     const data = await Product.findById(id).populate("category");
-    
+
     if (data) {
       res.render("detailesproduct", { product: data });
     } else {
@@ -530,17 +524,17 @@ const detaileprofile = async (req, res) => {
 
   try {
     const userData = await User.findOne({ _id: req.session.userId });
-    const history =userData.wallehistory;
+    const history = userData.wallehistory;
     const orderData = await Order.findOne();
     const Total = userData.wallet + orderData.totalAmount;
-    const total=req.session.total;
+    const total = req.session.total;
     const wall = userData.wallet - total;
     const reffrelcode = userData.referral
     const inviteLink = '/signup';
-   
 
 
-console.log(reffrelcode,'referralCode');
+
+    console.log(reffrelcode, 'referralCode');
 
 
     res.render("userprofile", {
@@ -565,7 +559,7 @@ const updateprofile = async (req, res) => {
 
     if (userData) {
       res.render('updateprofile', { user: userData });
- } else {
+    } else {
       res.redirect('/home')
     }
   } catch (error) {
@@ -600,13 +594,13 @@ const getcart = async (req, res) => {
           .lean();
         if (cartData) {
           let total = 0;
-          if (cartData.product.length) {        
+          if (cartData.product.length) {
             total = getTotalPrice(cartData.product);
             res.render("cart", {
               user: req.session.name,
               data: cartData.product,
               userId: id,
-              total: total,         
+              total: total,
             });
           } else {
             res.render("cart", { user: req.session.name, data2: "hi" });
@@ -739,7 +733,7 @@ const checkout = async (req, res) => {
       const address = await User.findOne({ _id: req.session.userId });
       const id = address._id;
       const cartData = await Cart.findOne({ user: id }).populate("product.productId");
-     
+
       if (cartData.product.length !== 0) {
         let total = 0;
         if (cartData.product.length) {
@@ -793,7 +787,7 @@ const checkout = async (req, res) => {
                   },
                 },
               },
-            ]).exec();       
+            ]).exec();
             res.render("checkout", {
               address: user.address,
               total: Total,
@@ -852,22 +846,22 @@ const postPlaceOrder = async (req, res) => {
         couponCode: "",
       });
       await orderNew.save();
-       if (orderNew.status === 'Placed') {
+      if (orderNew.status === 'Placed') {
 
-            await User.findByIdAndUpdate(user._id,
-               {
-                  $set: { wallet: wallet },
-                  $push: {
-                     wallehistory: {
-                      peramount: wallet,
-                        date: new Date().toISOString().substring(0,10),
-                        transaction: "Debit",
-                       
-                     }
-                  }
-               },
-            );
-   
+        await User.findByIdAndUpdate(user._id,
+          {
+            $set: { wallet: wallet },
+            $push: {
+              wallehistory: {
+                peramount: wallet,
+                date: new Date().toISOString().substring(0, 10),
+                transaction: "Debit",
+
+              }
+            }
+          },
+        );
+
       }
       let orderId = orderNew._id;
       if (orderNew.status == "Placed") {
@@ -887,7 +881,7 @@ const postPlaceOrder = async (req, res) => {
           wall = user.wallet - total;
           message = "Payment successful. Wallet balance updated.";
         }
-        
+
         const result = await User.updateOne({ _id: user._id }, { $set: { wallet: wall } })
         console.log(result, 'sssssssssss');
         await Cart.deleteOne({ user: user._id });
@@ -896,7 +890,7 @@ const postPlaceOrder = async (req, res) => {
           const quantity = Number(product[i].quantity);
           if (isNaN(quantity) || quantity <= 0) {
             console.error(`Invalid quantity for productId ${productId}`);
-            continue; 
+            continue;
           }
         }
         res.json({ codSuccess: true });
@@ -945,7 +939,7 @@ const updateaddress = async (req, res) => {
       console.log("🚀 ~ file: userController.js:963 ~ editpostaddress ~ addressId:", addressId);
       const userId = req.session.userId;
       const { name, state, town, houseAdress, pincode, phone } = req.body;
-        await User.updateOne(
+      await User.updateOne(
         { _id: userId, "address._id": addressId },
         {
           $set: {
@@ -1078,7 +1072,7 @@ const applycoupon = async (req, res) => {
       if (couponData) {
         if (couponData.expiredate >= new Date()) {
           if (couponData.limit != 0) {
-            if (couponData.mincartamount <= amount&&amount>=couponData.couponamount) {
+            if (couponData.mincartamount <= amount && amount >= couponData.couponamount) {
               console.log('-0-0-0-0');
               let discountvalue1 = couponData.couponamount;
               let distotal = Math.round(amount - discountvalue1);
@@ -1159,10 +1153,10 @@ const verifyPayment = async (req, res) => {
   }
 };
 
-const laodcontcts=async(req,res)=>{
-  try{
+const laodcontcts = async (req, res) => {
+  try {
     res.render('contacts')
-  }catch(error){
+  } catch (error) {
     console.log(error.meassage);
   }
 }
@@ -1213,7 +1207,7 @@ const loadwishlist = async (req, res) => {
               data: wishData.product,
               userId: id,
               total: Total,
-          
+
             });
           } else {
             res.render("wishlist", { user: req.session.name, data2: "hi" });
@@ -1354,7 +1348,7 @@ module.exports = {
   loadwishlist,
   addtowishlist,
   deletewish,
- 
+
 };
 
 
