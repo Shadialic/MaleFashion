@@ -21,6 +21,7 @@ const verifyAdmin = async (req, res) => {
 
     if (email === process.env.ADMIN_EMAIL) {
       const passwordMatch = process.env.ADMIN_PASS === password ? true : false;
+      req.session.user_id = true;
       if (passwordMatch) {
           res.redirect('/admin/adminHome');
       } else {

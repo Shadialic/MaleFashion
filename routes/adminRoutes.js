@@ -38,36 +38,36 @@ adminRoutes.get('/logout',nocache(), adminController.logout);
 adminRoutes.get('/users',nocache(),adminController.userTable)
 
 //<=----------- category routes
-adminRoutes.get('/category',auth.isLogin,nocache(),categoryController.loadcategory)
-adminRoutes.get('/addcategory',auth.isLogin,nocache(),categoryController.addcategory);
+adminRoutes.get('/category',nocache(),categoryController.loadcategory)
+adminRoutes.get('/addcategory',nocache(),categoryController.addcategory);
 adminRoutes.post('/addcategory',nocache(),categoryController.categoryadd)
-adminRoutes.get('/edit-category',auth.isLogin,nocache(),categoryController.editcategory)
+adminRoutes.get('/edit-category',nocache(),categoryController.editcategory)
 adminRoutes.post('/edit-category',nocache(),categoryController.updatedcategory);
-adminRoutes.get('/delete-category',auth.isLogin,nocache(),categoryController.deletecategory)
-adminRoutes.get('/show-category',auth.isLogin,nocache(),categoryController.unlistCategory)
+adminRoutes.get('/delete-category',nocache(),categoryController.deletecategory)
+adminRoutes.get('/show-category',nocache(),categoryController.unlistCategory)
 
 // <=----------Product routes
-adminRoutes.get('/product',auth.isLogin,nocache(),productController.loadProduct)
-adminRoutes.get('/addproduct',auth.isLogin,nocache(),productController.productadd)
+adminRoutes.get('/product',nocache(),productController.loadProduct)
+adminRoutes.get('/addproduct',nocache(),productController.productadd)
 adminRoutes.post('/addproduct',upload.array("image",3),productController.addproduct);
-adminRoutes.get('/editproduct',auth.isLogin,nocache(),productController.poductedit)
+adminRoutes.get('/editproduct',nocache(),productController.poductedit)
 adminRoutes.post('/editproduct',upload.array('image'),productController.editedproduct)
 adminRoutes.post("/removeimage",nocache(), productController.removeimage)
 adminRoutes.get('/show-products', productController.unlistproduct)
-adminRoutes.get('/delete-products',auth.isLogin,nocache(),productController.deleteproduct)
+adminRoutes.get('/delete-products',nocache(),productController.deleteproduct)
 
 // <=-------Order routes
-adminRoutes.get('/orders',auth.isLogin,nocache(), orderController.getOrder);
-adminRoutes.get('/singleOrder',auth.isLogin,nocache(),orderController.viewOrder);
+adminRoutes.get('/orders',nocache(), orderController.getOrder);
+adminRoutes.get('/singleOrder',nocache(),orderController.viewOrder);
 adminRoutes.post("/updateStatus",nocache(),orderController.updatestatus)
 
 
 // <=---------Coupen routes
-adminRoutes.get("/coupon",auth.isLogin,nocache(),couponcontroller.getCoupon);
-adminRoutes.get("/addCoupon",auth.isLogin,nocache(),couponcontroller.getaddcoupon);
+adminRoutes.get("/coupon",nocache(),couponcontroller.getCoupon);
+adminRoutes.get("/addCoupon",nocache(),couponcontroller.getaddcoupon);
 adminRoutes.post("/addCoupon",nocache(),couponcontroller.postaddcoupon);
-adminRoutes.get("/deletecoupon",auth.isLogin,nocache(), couponcontroller.deleteCoupon);
-adminRoutes.get('/editcoupon',auth.isLogin,nocache(),couponcontroller.editcoupon)
+adminRoutes.get("/deletecoupon",nocache(), couponcontroller.deleteCoupon);
+adminRoutes.get('/editcoupon',nocache(),couponcontroller.editcoupon)
 adminRoutes.post('/editcoupon',nocache(),couponcontroller.updatedcoupon)
 
 // banners 
@@ -78,7 +78,7 @@ adminRoutes.get('/showBanner',auth.isLogin,nocache(),bannerController.unlistBann
 adminRoutes.get("/deletebanner",auth.isLogin,nocache(),bannerController.deletebanner);
 
 // sales Report
-adminRoutes.get("/salesreport",auth.isLogin,nocache(), adminController.getSalesReport)
-adminRoutes.get("/report",auth.isLogin,nocache(),orderController.report);
+adminRoutes.get("/salesreport",nocache(), adminController.getSalesReport)
+adminRoutes.get("/report",nocache(),orderController.report);
 
 module.exports = adminRoutes;
