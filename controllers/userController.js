@@ -164,11 +164,9 @@ const resendOTP = async (req, res) => {
 const verifyOTP = async (req, res) => {
 
   try {
-
     const otp = req.session.otp;
-
-    function referalchecking() {
-      const reffrelcodes = reffrelcodeGen();
+     function referalchecking() {
+      let reffrelcodes = reffrelcodeGen();
       reffrelcode = reffrelcodes[0]
       return reffrelcode;
     }

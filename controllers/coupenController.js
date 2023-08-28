@@ -82,7 +82,6 @@ const updatedcoupon = async (req, res) => {
         } = req.body;
 
         console.log('Updating with data:', req.body);
-
         const updateResult = await Coupon.findByIdAndUpdate(
             id, 
             {
