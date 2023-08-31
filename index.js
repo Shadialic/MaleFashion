@@ -18,6 +18,18 @@ app.set('layout', 'layouts/layout')
 app.use(expressLayouts);
 app.use(express.static(path.join(__dirname, 'public')))
 
+// Error handling middleware (should be at the end)
+app.use((req, res) => {
+  res.status(404).render('404'); 
+});
+
+app.use((err, req, res, next) => {
+    console.error(err); 
+    res.status(500).render('500'); 
+  });
+  
+
+
 app.listen(3000, () => {
     console.log("server started");
 })

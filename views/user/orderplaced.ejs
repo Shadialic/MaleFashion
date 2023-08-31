@@ -97,9 +97,9 @@
                         color: #222222;
                         padding-left: 18px;">Order Info </h4>
                         <ul class="list" style=" list-style: none; font-family: ui-monospace;">
-                            <li><a href="#" style="color: #7e848b;"><span>Order number</span> : 60235</a></li>
-                            <li><a href="#" style="color: #7e848b;"><span>Date</span> : Los Angeles</a></li>
-                            <li><a href="#" style="color: #7e848b;"><span>Total</span> : USD 2210</a></li>
+                            <li><a href="#" style="color: #7e848b;"><span>Order number</span> : <%=user._id%></a></li>
+                            <li><a href="#" style="color: #7e848b;"><span>Date</span> : <%=user.Date%></a></li>
+                            <li><a href="#" style="color: #7e848b;"><span>Total</span> : Rs:<%= user.totalAmount %></a></li>
                             <li><a href="#" style="color: #7e848b;"><span>Payment method</span> :<%=user.paymentMethod%></a></li>
                         </ul>
                     </div>

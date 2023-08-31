@@ -149,11 +149,16 @@ crossorigin="anonymous" referrerpolicy="no-referrer"/>
                                             <td class="text-center"><%= coupon.mincartamount %></td>
                                             <td class="text-center">
                                                 <% if (coupon.expiredate) { %>
-                                                    <%= coupon.expiredate.toISOString().substring(0, 10) %>
+                                                  <% const date = new Date(coupon.expiredate); %>
+                                                  <% const day = String(date.getDate()).padStart(2, '0'); %>
+                                                  <% const month = String(date.getMonth() + 1).padStart(2, '0'); %>
+                                                  <% const year = date.getFullYear(); %>
+                                                  <%= `${day}-${month}-${year}` %>
                                                 <% } else { %>
-                                                    N/A
+                                                  N/A
                                                 <% } %>
-                                            </td>
+                                              </td>
+                                              
                                             <!-- <td class="text-center"><%= coupon.limit %></td> -->
                                             <td class="text-center"><%= coupon.status %></td>
                                             <td class="text-center">
@@ -185,7 +190,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"/>
                
                 
             </div>
-              <!-- Footer Start -->
+           <!-- Footer Start -->
               <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
                     <div class="row">

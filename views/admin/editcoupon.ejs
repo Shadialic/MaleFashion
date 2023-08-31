@@ -29,6 +29,7 @@
 
   <!-- Template Stylesheet -->
   <link href="/admincss/css/style.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -108,7 +109,7 @@
         <div class="col-sm-12 col-xl-9 mt-4">
           <div class="bg-light rounded h-100 p-4">
             <h6 class="mb-4">Edit Coupon</h6>
-            <form action="/admin/editcoupon?id=<%= coupon._id %>" method="post">
+            <form action="/admin/editcoupon?id=<%= coupon._id %>" method="post" onsubmit="return validateForm();">
 
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label">Coupon Name</label>
@@ -134,10 +135,10 @@
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label">Expiry Date</label>
                 <div class="col-sm-10">
-                  <input type="date" value="<%= coupon.expiredate%>" name="expiredate" class="form-control"
-                    id="inputPassword3">
+                  <input type="date" value="<%= coupon.expiredate.toISOString().slice(0, 10) %>" name="expiredate" class="form-control" id="inputPassword3">
                 </div>
               </div>
+              
               <button type="submit" class="btn btn-primary">Save</button>
             </form>
           </div>
@@ -181,6 +182,48 @@
     <script src="/styles/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
     <script src="/styles/vendors/owl-carousel-2/owl.carousel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+          function validateForm() {
+         const couponName = document.getElementById('inputEmail3').value.trim();
+         const amount = parseFloat(document.getElementById('inputPassword3').value);
+         const minCart = parseFloat(document.getElementById('inputPassword3').value);
+         const limit = parseInt(document.getElementById('inputPassword3').value);
+         const selectedDate = new Date(document.getElementsByName('expiredate')[0].value);
+         if(couponName===''){
+          Swal.fire({
+                 icon: 'error',
+                 title: 'Validation Error',
+                 text: 'Please enter couponName .',
+             });
+             
+             return false;
+
+         }
+     if (amount < 0 || minCart < 0 || limit < 0) {
+             Swal.fire({
+                 icon: 'error',
+                 title: 'Validation Error',
+                 text: 'Please enter positive values for Coupon Amount, Min Cart Amount, and Limit.',
+             });
+             
+             return false;
+         }
+         
+      
+       const currentDate = new Date();
+       if (selectedDate <= currentDate) {
+           Swal.fire({
+               icon: 'error',
+               title: 'Validation Error',
+               text: 'Expiry date should be in the future.',
+           });
+           return false;
+       }
+     
+         return true;
+   }
+   </script>
   
     <!-- End plugin js for this page -->
     <!-- inject:js -->

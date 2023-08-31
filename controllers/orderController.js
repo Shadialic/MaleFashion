@@ -115,6 +115,7 @@ const checkWallet = async (req, res) => {
     } catch (error) {
         res.redirect("/serverERR", { message: error.message });
         console.log(error.message);
+        res.status(404).render('404')
     }
 };
 
@@ -149,6 +150,7 @@ const report = async (req, res) => {
         res.sendFile(pdfUrl);
     } catch (error) {
         console.log(error.message);
+        res.status(404).render('404')
     }
 };
 

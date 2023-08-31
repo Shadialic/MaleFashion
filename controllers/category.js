@@ -90,7 +90,7 @@ const deletecategory = async (req, res) => {
         if (deleted) {
             res.redirect('/admin/category')
         } else {
-            console.log('404');
+            res.status(404).render('404')
         }
     } catch (error) {
         console.log(error.message);

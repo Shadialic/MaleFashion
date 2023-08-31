@@ -32,25 +32,31 @@ userRouter.get('/block',nocache(), userController.blockuser);
 userRouter.get('/unblock',nocache(),userController.unblockuser);
 userRouter.get("/loginpage",auth.isLogout,nocache(), userController.loginLoad)
 userRouter.get('/userotp',nocache(), userController.loadOTP);
-userRouter.get('/products',auth.blockedstatus, auth.isLogin,nocache(), userController.listProducts);
-userRouter.get('/detailesproduct', auth.blockedstatus,nocache(), userController.detailproduct);
+userRouter.get("/resendotp", userController.resendOTP);
+userRouter.get('/products',auth.blockedstatus,nocache(), userController.listProducts);
+userRouter.get('/detailesproduct', auth.blockedstatus, auth.isLogin,nocache(), userController.detailproduct);
 userRouter.get('/userprofile', auth.blockedstatus, auth.isLogin,nocache(), userController.detaileprofile);
 userRouter.get('/update',nocache(), userController.updateprofile);
 userRouter.get("/cart",nocache(), auth.blockedstatus, auth.isLogin,nocache(), userController.getcart)
 userRouter.get("/checkout",nocache(), auth.isLogin,nocache(), userController.checkout);
 userRouter.get("/forget",nocache(), userController.forgotPassword)
 userRouter.get("/updatePassPage",nocache(), userController.updatePassword)
-userRouter.get("/orderplaced",nocache(), userController.confermation);
-userRouter.get("/order",auth.blockedstatus, auth.isLogin,nocache(), userController.getOrder);
+userRouter.get("/orderplaced", auth.isLogin,nocache(), userController.confermation);
+userRouter.get("/order",auth.blockedstatus,nocache(), userController.getOrder);
 userRouter.get("/editaddress",nocache(), userController.editaddress)
 userRouter.get("/delete-address",nocache(), userController.deleteAddress);
 userRouter.get("/singleOrder",auth.isLogin,nocache(), userController.singleOrder);
 userRouter.get('/cancelOrder',nocache(), orderController.cancelOrder)
 userRouter.get("/logout",auth.isLogin,nocache(), userController.Logout);
 userRouter.get("/returnOrder",nocache(), orderController.returnOrder)
-userRouter.get('/contacts', auth.isLogin,nocache(),userController.laodcontcts)
+userRouter.get('/contacts', nocache(),userController.laodcontcts)
 userRouter.get('/wishlist',auth.isLogin,nocache(),userController.loadwishlist)
 userRouter.get("/addtowishlist",auth.isLogin,nocache(),userController.addtowishlist);
+userRouter.get("/errorr",auth.isLogin,nocache(),userController.errorpage);
+userRouter.get("/failuare",auth.isLogin,nocache(),userController.loadfailuare);
+
+
+
 
 
 

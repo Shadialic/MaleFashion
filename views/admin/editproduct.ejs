@@ -164,15 +164,14 @@
               <div class="mb-3">
                 <label class="form-label">Category</label>
                 <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" name="categoryId">
-                  <option value="<%= user.category._id %>">
-                    <%= user.category.category %>
-                  </option>
                   <% category.forEach(function(categoryItem) { %>
-                    <option value="<%= categoryItem._id %>">
+                    <option value="<%= categoryItem._id %>" <%= user.category._id.toString() === categoryItem._id.toString() ? 'selected' : '' %>>
                       <%= categoryItem.category %>
                     </option>
-                    <% }) %>
+                  <% }) %>
                 </select>
+
+
               </div>
 
               <button type="submit" class="btn btn-primary">Save</button>

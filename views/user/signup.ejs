@@ -270,7 +270,7 @@
 				<input type="text" id="password" name="password" placeholder="password">
 				<span id="passwordError" style="color:#e5380d"></span>
 				<% if(typeof message !=='undefined' ){ %>
-					<p style="color:#069617">
+					<p style="color:red">
 						<%= message %>
 					</p>
 					<% } %>
@@ -309,20 +309,24 @@
 					nameError.innerHTML = 'name is required';
 				}
 				//email verification 
-				if (email.value === '' || email.value === null) {
-					emailError.innerHTML = 'email is required';
-					e.preventDefault();
-				}
+				const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.match(emailPattern)) {
+                e.preventDefault();
+                emailError.innerHTML = 'Enter a valid email address';
+            }
 				//numberverification
-				if (number.value < 10) {
-					numberError.innerHTML = 'number must be at least 10';
-					e.preventDefault();
-				}
+				if (number.value.length < 10) {
+                e.preventDefault();
+                numberError.innerHTML = 'Number must be at least 10 digits';
+            }
 				//password Validations
 				if (password.value === '' || password.value === null) {
-					passwordError.innerHTML = 'password is required';
-					e.preventDefault();
-				}
+                e.preventDefault();
+                passwordError.innerHTML = 'Password is required';
+            } else if (password.value.length < 8) {
+                e.preventDefault();
+                passwordError.innerHTML = 'Password must be at least 8 characters';
+            }
 
 			})
 		});

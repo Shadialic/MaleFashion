@@ -36,7 +36,6 @@ const securePassword = async (password) => {
 const loadHome = async (req, res) => {
   try {
     let userData;
-
     if (req.session.userId) {
       userData = true;
     } else {
@@ -124,7 +123,7 @@ const insertUser = async (req, res) => {
     req.session.otp = OTP;
 
     sendOTP(userData.username, userData.email, OTP);
-   
+
     res.redirect('/userotp');
 
 
@@ -133,15 +132,11 @@ const insertUser = async (req, res) => {
 
   }
 }
+
 const loadOTP = async (req, res) => {
-
   try {
-
-    const userData=req.session.userData;
-
+    const userData = req.session.userData;
     res.render('userotp', { email: userData.email });
-
-
   } catch (error) {
     console.log('loadOTP method', error.message);
   }
@@ -149,12 +144,10 @@ const loadOTP = async (req, res) => {
 
 const resendOTP = async (req, res) => {
   try {
-    const { email, username } = req.session.userData;
+    const user = req.session.userData;
     const newOTP = otpGen();
-    req.session.otp = newOTP;
-
-    sendOTP(username, email, newOTP);
-    res.render('userotp', { email });
+    sendOTP(user.username, user.email, newOTP);
+    res.render('userotp', { email: user.email });
   } catch (error) {
     console.log('resendOTP method', error.message);
     res.render('userotp', { error: 'An error occurred. Please try again later.' });
@@ -164,23 +157,25 @@ const resendOTP = async (req, res) => {
 const verifyOTP = async (req, res) => {
 
   try {
-    const otp = req.session.otp;
-     function referalchecking() {
+
+    let reffrelcode;
+
+    function referalchecking() {
       let reffrelcodes = reffrelcodeGen();
       reffrelcode = reffrelcodes[0]
       return reffrelcode;
     }
+    let referalcheck = await User.findOne({ referral: reffrelcode });
+    let referrals;
 
-    const referalcheck = await User.findOne({ referral: reffrelcode })
-    let referrals
     if (referalcheck) {
-      referalchecking()
+      referalchecking();
     } else {
-
-      referrals = reffrelcode
+      referrals = reffrelcode;
     }
 
-
+    const { val1, val2, val3, val4, val5, val6 } = req.body;
+    let otp = Number(val1 + val2 + val3 + val4 + val5 + val6);
     if (otp == OTP) {
       const { username, email, mobile, password, userreferralCode } = req.session.userData;
 
@@ -242,21 +237,17 @@ const verifyLogin = async (req, res) => {
 
 
     const userData = await User.findOne({ email: email });
-
-    req.session.userId = userData._id;
-
-
     if (userData) {
+      req.session.userId = userData._id;
       const passwordMatch = await bcrypt.compare(password, userData.password)
-      if (passwordMatch) {
-
-        res.redirect('/home')
+      if (passwordMatch ) {
+        res.redirect('/home')      
       } else {
-
         res.render('loginpage', { message: 'password is incorrect' });
       }
     } else {
-      res.render('loginpage', { message: 'username or password is incorrect' });
+     
+      res.render('loginpage', { message:'email or password is incorrect' });
     }
 
   } catch (error) {
@@ -321,7 +312,7 @@ const forgotPass = async (req, res) => {
     forgotpasswordotp(userEmail, oneTimePin);
     res.render('forotp', { message: 'OTP sent successfully' });
   } catch (err) {
-    console.log(err);
+    res.status(500).render('500')
   }
 };
 
@@ -340,7 +331,7 @@ const updatePass = async (req, res) => {
     const email = req.session.userMail;
     const password = req.body.password;
     const hashPass = await securePassword(password);
-    await User.updateOne({ email: email }, { $set: { password: hashPass } }); // Use email from session
+    await User.updateOne({ email: email }, { $set: { password: hashPass } });
     res.redirect('/loginpage');
   } catch (err) {
     console.log(err);
@@ -501,7 +492,7 @@ const listProducts = async (req, res) => {
 }
 
 
-const detailproduct = async (req, res) => {
+const detailproduct = async (req, res,next) => {
   try {
     const id = req.query.id;
     const data = await Product.findById(id).populate("category");
@@ -512,9 +503,10 @@ const detailproduct = async (req, res) => {
       res.render("error", { message: "Product not found." });
     }
   } catch (error) {
-    console.error("Error in detailproduct:", error);
-    res.render("error", { message: "An error occurred." });
-  }
+    console.log(error.message);
+    res.status(500).render('500')
+   
+  }  
 };
 
 const detaileprofile = async (req, res) => {
@@ -718,7 +710,7 @@ const addingAddress = async (req, res) => {
     }
   } catch (error) {
     console.log(error.message);
-    res.status(500).json({ error: 'Internal server error.' });
+    res.status(500).render('500')
   }
 }
 
@@ -808,12 +800,25 @@ const checkout = async (req, res) => {
 const confermation = async (req, res) => {
   try {
     const orderData = await Order.findOne().sort({ Date: -1 }).limit(1).populate('product.productId');
+    const useraddress= await User.findOne();
+
     const userId = orderData.user;
-    res.render("orderplaced", { user: orderData });
+    res.render("orderplaced", { user: orderData,address:useraddress });
+  } catch (error) {
+    console.log(error.message);
+  } 
+};
+
+const loadfailuare = async (req, res) => {
+  try {
+    const orderData = await Order.findOne().sort({ Date: -1 }).limit(1).populate('product.productId');
+   
+    res.render("failuare", { user: orderData });
   } catch (error) {
     console.log(error.message);
   }
 };
+
 
 const postPlaceOrder = async (req, res) => {
   try {
@@ -873,10 +878,8 @@ const postPlaceOrder = async (req, res) => {
         if (orderNew.totalAmount >= user.wallet) {
           wall = 10;
 
-          message = "Insufficient funds, using default wallet amount.";
         } else {
           wall = user.wallet - total;
-          message = "Payment successful. Wallet balance updated.";
         }
 
         const result = await User.updateOne({ _id: user._id }, { $set: { wallet: wall } })
@@ -892,7 +895,6 @@ const postPlaceOrder = async (req, res) => {
         }
         res.json({ codSuccess: true });
       } else {
-        console.log('=-=-=-=-=');
         const options = {
           amount: total * 100,
           currency: 'INR',
@@ -952,7 +954,8 @@ const updateaddress = async (req, res) => {
       res.redirect("/checkout");
     }
   } catch (error) {
-    console.log(error.message);
+    res.status(500).render('500')
+    
   }
 };
 
@@ -978,7 +981,7 @@ const deleteAddress = async (req, res) => {
     }
   } catch (error) {
     console.log(error.message);
-    res.status(500).send("Internal Server Error");
+    res.status(500).render('500')
   }
 };
 
@@ -1032,8 +1035,6 @@ const changeQty = async (req, res) => {
     const productId = req.body.product;
     const value = Number(req.body.value);
     const stockAvailable = await Product.findById(productId);
-    // const productOffer = await productOfferSchema.find({ status: 'Active', product_name: stockAvailable._id }).sort({ discountPercentage: 1 });
-    // const offers = await offerSchema.find({ status: 'Active', category: stockAvailable.category._id }).populate('category').sort({ discountPercentage: 1 })
     if (stockAvailable.quantity >= value) {
       await Cart.updateOne(
         {
@@ -1145,7 +1146,7 @@ const verifyPayment = async (req, res) => {
       res.redirect("/loginpage");
     }
   } catch (error) {
-    res.render("500", { message: error.message });
+    res.status(500).render('500')
     console.log(error.message);
   }
 };
@@ -1296,10 +1297,17 @@ const deletewish = async (req, res) => {
     }
   } catch (error) {
     console.log(error.message);
-    res.status(500).json({ error: 'Internal server error.' });
+    res.status(500).render('500')
   }
 };
 
+const errorpage =async(req,res)=>{
+  try{
+    res.render('/errorr')
+  }catch(error){
+    console.log(error);
+  }
+}
 
 
 module.exports = {
@@ -1345,6 +1353,8 @@ module.exports = {
   loadwishlist,
   addtowishlist,
   deletewish,
+  errorpage,
+  loadfailuare
 
 };
 

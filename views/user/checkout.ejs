@@ -608,48 +608,38 @@
          var rzp1 = new Razorpay(options);
          rzp1.open();
       }
-
       function verifyPayment(payment, order) {
-         $.ajax({
-            url: "/verifyPayment", // Your server endpoint for payment verification
-            method: 'post',
-            data: {
-               payment,
-               order
-            },
-            success: (response) => {
-               if (response.success == true) {
-                  console.log('Payment successful');
-                  window.location.href = "orderplaced";
-               } else if (response.onlineSuccess) {
-                  Swal.fire({
-                     icon: 'error',
-                     title: 'Payment failed',
-                     showConfirmButton: false,
-                     timer: 1500
-                  });
-               } else {
-
-                  Swal.fire({
-                     icon: 'error',
-                     title: 'Payment verification failed',
-                     showConfirmButton: false,
-                     timer: 1500
-                  });
-               }
-            },
-            error: (error) => {
-
-               console.error(error);
-               Swal.fire({
-                  icon: 'error',
-                  title: 'Payment verification failed',
-                  showConfirmButton: false,
-                  timer: 1500
-               });
+    $.ajax({
+        url: "/verifyPayment",
+        method: 'post',
+        data: {
+            payment,
+            order
+        },
+        success: (response) => {
+            if (response.success === true) {
+                console.log('Payment successful');
+                window.location.href = "orderplaced";
+            } else if (response.success === false) {
+                console.log("Payment failed");
+                window.location.href = "/failuare";
+            } else {
+                console.log("Payment verification failed");
             }
-         });
-      }
+        },
+        error: (error) => {
+            console.error("Payment verification failed", error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Payment verification failed',
+                text: 'An error occurred while verifying the payment.',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+    });
+}
+
    </script>
    <script>
       function checkWallet() {
@@ -663,9 +653,6 @@
             success: (response) => {
                if (response.success) {
                   console.log("success");
-
-
-
                   if (response.wallet > amount) {
                      response.wallet = response - amount
                      walletPlace.innerHTML = response.walleta
