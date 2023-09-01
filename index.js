@@ -22,6 +22,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 
+
 // app.set('layout', 'layouts/layout'); // Ensure 'layouts' folder and 'layout.ejs' exist
 // app.use(expressLayouts);
 
@@ -42,3 +43,8 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
+
+
+
+
+

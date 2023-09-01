@@ -10,6 +10,7 @@ const Order = require('../models/orderModel')
 const Coupon = require("../models/coupenModel");
 const Banner = require('../models/bannerModel')
 const Wish = require('../models/wishlistModel')
+const otpModel=require('../models/otpModel')
 require("dotenv").config();
 const mongoose = require('mongoose');
 const offerSchema = require('../models/offerModel');
@@ -53,16 +54,16 @@ const loadHome = async (req, res) => {
 };
 
 
-const OTP = otpGen();
-const reffrelcodes = reffrelcodeGen();
-const reffrelcode = reffrelcodes[0];
+
+let reffrelcodes = reffrelcodeGen();
+let reffrelcode = reffrelcodes[0];
 
 
 
 const loadSignup = async (req, res) => {
   try {
 
-    const referralCode = req.params.referralCode;
+    let referralCode = req.params.referralCode;
     if (referralCode != undefined) {
 
       res.render('signup', { referralCode });
@@ -75,42 +76,60 @@ const loadSignup = async (req, res) => {
   }
 }
 
-const sendOTP = async (username, email, otp,) => {
-  try {
+let sendOTP = async ( username, email, otp) => {
+  const OTP = otpGen();
+  
+ 
+  console.log("OTpppppppppppppppppppppppppppppppppppppppppP",OTP,email);
+
+
+  let newotp = new otpModel({
+    otp: OTP,
+    email:email
+    
+    
+   
+  });
+   await newotp.save();
+
+  
+ try {
+    let otp = OTP;
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
       secure: true,
       auth: {
-        user: process.env.NODEMAILER_EMAIL,
-        pass: process.env.NODEMAILER_PASS
+        user: "shadilsa786@gmail.com",
+        pass: 'cxgngzhigpipfxvv'
       }
-    });
 
-    const mailOptions = {
-      from: process.env.NODEMAILER_EMAIL,
+    });
+     console.log("rrrrrrrrrpppppppppppppppp",otp);
+    let mailOptions = {
+      from:"shadilsa786@gmail.com",
       to: email,
       subject: 'Your OTP',
-      text: OTP
+      text: otp
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log(error);
+        res.status(500).json({ error: 'Failed to send OTP email.' });
       } else {
-        console.log(" Email has been sent", info.response);
+        console.log("Email has been sent", info.response);
+        res.status(200).json({ message: 'OTP email sent successfully.' });
       }
     });
-
-  } catch (error) {
-    console.log("error is on sendOTP method", error.message);
-    res.status(500).json({ error: 'Internal server error.' });
-  }
+   } catch (error) {
+     console.log("error is on sendOTP method", error.message);
+     res.status(500).json({ error: 'Internal server error.' });
+   }
 }
 
 
 const insertUser = async (req, res) => {
-
   try {
     const userData = {
       username: req.body.username,
@@ -120,9 +139,10 @@ const insertUser = async (req, res) => {
       userreferralCode: req.params.referralCode
     }
     req.session.userData = userData
-    req.session.otp = OTP;
+    console.log('req.session.userData',req.session.userData,'tttttttttttttttttttt');
+     //req.session.otp = null;
 
-    sendOTP(userData.username, userData.email, OTP);
+    sendOTP(userData.username,userData.email);
 
     res.redirect('/userotp');
 
@@ -143,9 +163,10 @@ const loadOTP = async (req, res) => {
 };
 
 const resendOTP = async (req, res) => {
+  
+  let newOTP= 0;
   try {
     const user = req.session.userData;
-    const newOTP = otpGen();
     sendOTP(user.username, user.email, newOTP);
     res.render('userotp', { email: user.email });
   } catch (error) {
@@ -158,12 +179,11 @@ const verifyOTP = async (req, res) => {
 
   try {
 
-    let reffrelcode;
-
+    
     function referalchecking() {
-      let reffrelcodes = reffrelcodeGen();
-      reffrelcode = reffrelcodes[0]
-      return reffrelcode;
+    let reffrelcodes = reffrelcodeGen();
+    reffrelcode = reffrelcodes[0];
+    return reffrelcode;
     }
     let referalcheck = await User.findOne({ referral: reffrelcode });
     let referrals;
@@ -172,17 +192,28 @@ const verifyOTP = async (req, res) => {
       referalchecking();
     } else {
       referrals = reffrelcode;
+     // console.log('refaralllllllllll',referrals);
     }
 
-    const { val1, val2, val3, val4, val5, val6 } = req.body;
+    let { val1, val2, val3, val4, val5, val6 } = req.body;
     let otp = Number(val1 + val2 + val3 + val4 + val5 + val6);
-    if (otp == OTP) {
-      const { username, email, mobile, password, userreferralCode } = req.session.userData;
+       //console.log(otp,'ffffffffffffttttttttttttttttttttf');
+
+    let  userdatas  = req.session.userData;
+    let emails=userdatas.email
+    // console.log(emails,'ffffffffffffttttttttttttttttttttf');
+
+    const databaseotp= await otpModel.findOne({ email: emails })
+    let otpmain=databaseotp.otp;
+    // console.log(databaseotp,'fffffffffffffffffffffffffffffffffff');
+    // console.log(otpmain,'ffffffffffffffffffffffffffffffff');
+    if (otp == otpmain) {
+      let { username, email, mobile, password, userreferralCode } = req.session.userData;
 
       let checkuser = await User.findOne({ referral: userreferralCode });
       let checkemail = email
-      const secPassword = await securePassword(password);
-      const user = new User({
+      let secPassword = await securePassword(password);
+      let user = new User({
         mobile: mobile,
         username: username,
         email: email,
@@ -190,19 +221,29 @@ const verifyOTP = async (req, res) => {
         referral: referrals,
         is_admin: 0,
       });
-      const userData = await user.save();
+      await otpModel.findOneAndRemove({ email: email });
+      let userData = await user.save();
+      req.session.otp=null;
+      
       if (checkuser) {
-        const user = await User.findOne({ email: checkemail })
+        let user = await User.findOne({ email: checkemail })
 
         user.wallet = 50;
-        const userData = await user.save();
-      }
+        
 
-      if (userData) {
+        let userData = await user.save();
+        
+          res.render('loginpage',{ message: 'Registration Success' });
+          console.log("reffrel working");  
+      }
+      else if (userData) {
+      
         res.render('loginpage', { message: 'Registration Success' });
+        console.log("userdata working");
       } else {
         res.render('signup', { message: 'Registarion Failed' })
       }
+      
     } else {
       res.render('signup', { message: 'Incorrect OTP' })
     }
@@ -234,8 +275,6 @@ const verifyLogin = async (req, res) => {
   try {
     const email = req.body.email;
     const password = req.body.password;
-
-
     const userData = await User.findOne({ email: email });
     if (userData) {
       req.session.userId = userData._id;
@@ -243,11 +282,11 @@ const verifyLogin = async (req, res) => {
       if (passwordMatch ) {
         res.redirect('/home')      
       } else {
-        res.render('loginpage', { message: 'password is incorrect' });
+        res.render('loginpage', { messages: 'password is incorrect' });
       }
     } else {
      
-      res.render('loginpage', { message:'email or password is incorrect' });
+      res.render('loginpage', { messages:'email or password is incorrect' });
     }
 
   } catch (error) {
@@ -461,7 +500,6 @@ const listProducts = async (req, res) => {
     }
 
     const productOffer = await productOfferSchema.find({ status: 'Active', productname: data._id, endDate: { $gte: new Date() }, startDate: { $lte: new Date() } }).sort({ discountPercentage: 1 });
-
     const offers = await offerSchema.find({ status: 'Active', baseCategory: data._id, endDate: { $gte: new Date() }, startDate: { $lte: new Date() } }).populate('category').sort({ discountPercentage: 1 })
     const id = req.query.id;
     const datas = await Product.findById(id).populate("category");
