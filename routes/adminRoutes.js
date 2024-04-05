@@ -63,11 +63,11 @@ adminRoutes.post("/updateStatus",nocache(),orderController.updatestatus)
 
 
 // <=---------Coupen routes
-adminRoutes.get("/coupon",auth.isLogin,nocache(),couponcontroller.getCoupon);
-adminRoutes.get("/addCoupon",auth.isLogin,nocache(),couponcontroller.getaddcoupon);
+adminRoutes.get("/coupon",nocache(),couponcontroller.getCoupon);
+adminRoutes.get("/addCoupon",nocache(),couponcontroller.getaddcoupon);
 adminRoutes.post("/addCoupon",nocache(),couponcontroller.postaddcoupon);
-adminRoutes.get("/deletecoupon",auth.isLogin,nocache(), couponcontroller.deleteCoupon);
-adminRoutes.get('/editcoupon',auth.isLogin,nocache(),couponcontroller.editcoupon)
+adminRoutes.get("/deletecoupon",nocache(), couponcontroller.deleteCoupon);
+adminRoutes.get('/editcoupon',nocache(),couponcontroller.editcoupon)
 adminRoutes.post('/editcoupon',nocache(),couponcontroller.updatedcoupon)
 
 // banners 

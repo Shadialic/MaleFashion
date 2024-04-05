@@ -1,7 +1,9 @@
 const express = require('express');
 const path = require('path');
+const env = require('dotenv')
+env.config()
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://127.0.0.1:27017/userdb");
+mongoose.connect(process.env.DATABASE);
 const expressLayouts = require("express-ejs-layouts")
 const app = express();
 
@@ -18,7 +20,7 @@ app.set('layout', 'layouts/layout')
 app.use(expressLayouts);
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log("server started");
 })
 
