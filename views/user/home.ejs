@@ -32,8 +32,13 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-                <a href="/loginpage">Sign in</a>
-
+                <% if (!userData) { %>
+                    <a href="loginpage">Sign in</a>
+                    <% } else { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout">logout</a>
+                        </li>
+                        <% } %>
             </div>
 
         </div>
@@ -181,7 +186,6 @@
                             <h2>
                                 <%=banner[0].heading %>
                             </h2>
-
                             <a href="/products">Shop now</a>
                         </div>
                     </div>

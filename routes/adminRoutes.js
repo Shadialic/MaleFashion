@@ -34,8 +34,8 @@ adminRoutes.use(nocache());
 adminRoutes.get("/",auth.isLogout,nocache(),adminController.loadLogin);
 adminRoutes.post('/',nocache(),adminController.verifyAdmin);
 adminRoutes.get('/adminHome',nocache(),adminController.loadDashboard)
-adminRoutes.get('/logout',nocache(), adminController.logout);
-adminRoutes.get('/users',nocache(),adminController.userTable)
+adminRoutes.get('/logout',auth.isLogin,nocache(), adminController.logout);
+adminRoutes.get('/users',auth.isLogin,nocache(),adminController.userTable)
 
 //<=----------- category routes
 adminRoutes.get('/category',auth.isLogin,nocache(),categoryController.loadcategory)
@@ -53,7 +53,7 @@ adminRoutes.post('/addproduct',upload.array("image",3),productController.addprod
 adminRoutes.get('/editproduct',auth.isLogin,nocache(),productController.poductedit)
 adminRoutes.post('/editproduct',upload.array('image'),productController.editedproduct)
 adminRoutes.post("/removeimage",nocache(), productController.removeimage)
-adminRoutes.get('/show-products', productController.unlistproduct)
+adminRoutes.get('/show-products',productController.unlistproduct)
 adminRoutes.get('/delete-products',auth.isLogin,nocache(),productController.deleteproduct)
 
 // <=-------Order routes

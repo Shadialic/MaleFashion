@@ -29,6 +29,7 @@
 
   <!-- Template Stylesheet -->
   <link href="/admincss/css/style.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <div class="container-xxl position-relative bg-white d-flex p-0">
@@ -104,12 +105,12 @@
         <div class="col-sm-12 col-xl-9 mt-4">
           <div class="bg-light rounded h-100 p-4">
             <h6 class="mb-4">add Product</h6>
-            <form action="addproduct" method="post" onsubmit="return priceCheck()" accept="image/*"
+            <form action="addproduct" method="post" onsubmit="return validateForm()" accept="image/*" enctype="multipart/form-data"
               enctype="multipart/form-data">
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label">Product name</label>
                 <div class="col-sm-10">
-                  <input type="text" name="productname" class="form-control" required="">
+                  <input type="text" name="productname" class="form-control" >
                 </div>
               </div>
               <div class="row mb-3">
@@ -213,6 +214,49 @@
 <script src="/admincss/lib/tempusdominus/js/moment.min.js"></script>
 <script src="/admincss/lib/tempusdominus/js/moment-timezone.min.js"></script>
 <script src="/admincss/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+<script>
+  function validateForm() {
+    const productName = document.getElementsByName('productname')[0].value.trim();
+    const productPrice = parseFloat(document.getElementById('productAmount').value);
+    const productQuantity = parseInt(document.getElementById('productQuantity').value);
+    
+
+    if (productPrice <= 0 || isNaN(productPrice)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid Price',
+        text: 'Price must be a positive number.',
+      });
+      return false;
+    }
+
+    if (productQuantity <= 0 || isNaN(productQuantity)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid Quantity',
+        text: 'Quantity must be a positive integer.',
+      });
+      return false;
+    }
+
+    // Check for duplicate product name
+    const productNames = document.querySelectorAll('[name="productname"]');
+for (let i = 0; i < productNames.length; i++) {
+  if (i !== 0 && productNames[i].value.trim() === productName) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Duplicate Product Name',
+      text: 'A product with the same name already exists.',
+    });
+    return false;
+  }
+}
+
+    // Additional validations can be added here
+
+    return true;
+  }
+</script>
 
 
 

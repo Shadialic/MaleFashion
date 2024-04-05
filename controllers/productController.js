@@ -68,7 +68,7 @@ const addproduct = async (req, res) => {
 
 const poductedit = async (req, res) => {
   try {
-    const category = await Category.find().lean();
+    const category = await Category.find().populate("category").lean();
     const id = req.query.id;
     const productData = await Product.findOne({ _id: id }).lean();
     if (productData) {

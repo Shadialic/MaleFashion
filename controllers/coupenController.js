@@ -57,7 +57,7 @@ const deleteCoupon = async (req, res) => {
 
 const editcoupon = async (req, res) => {
     try {
-        const coupon = await Coupon.findOne({ couponcode: req.query.id });
+        const coupon = await Coupon.findOne({ couponcode: req.query.id }).populate("expiredate").lean();
         res.render('editcoupon', { coupon })
     } catch (error) {
         console.log(error.message);
@@ -82,7 +82,6 @@ const updatedcoupon = async (req, res) => {
         } = req.body;
 
         console.log('Updating with data:', req.body);
-
         const updateResult = await Coupon.findByIdAndUpdate(
             id, 
             {
