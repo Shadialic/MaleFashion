@@ -239,7 +239,7 @@
    </section>
 
    <section class="ftco-section">
-      <form action="" id="place-order" method="post">
+      <form action="" id="placeorder" method="post" >
          <div class="container bg-light">
             <div class="row justify-content-center">
                <div class="col-xl-10 ftco-animate">
@@ -349,7 +349,7 @@
                         <p class="d-flex ">
                            <span>Total :</span>
                            Rs:
-                           <span id="total-amount">
+                           <span id="total-amount" >
                               <%=total%>
                            </span>
                         </p>
@@ -550,13 +550,13 @@
    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
    <script>
-      $("#place-order").submit((e) => {
+      $("#placeorder").submit((e) => {
+         e.preventDefault();
          const allTotal = document.getElementById("total").innerHTML;
          const walletPlace = document.getElementById("wallet").innerHTML;
-         const amount = document.getElementById("total-amount").innerHTML;
+         const amount = document.getElementById("total-amount").innerText ;
          const address = $("input[name=address]:checked").val();
          const paymentMethod = $("input[name=payment]:checked").val();
-         e.preventDefault();
          $.ajax({
             url: "/place-order", 
             method: 'post',
@@ -568,7 +568,6 @@
             },
             success: (response) => {
                if (response.codSuccess == true) {
-                  console.log('Cash on Delivery order placed');
                   location.href = "orderplaced";
                } else if (response.codFailed == true) {
                   swal("Oops!", "Add Address", "error");
@@ -621,7 +620,6 @@
                 console.log('Payment successful');
                 window.location.href = "orderplaced";
             } else if (response.success === false) {
-                console.log("Payment failed");
                 window.location.href = "/failuare";
             } else {
                 console.log("Payment verification failed");

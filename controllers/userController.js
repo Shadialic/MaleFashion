@@ -559,11 +559,6 @@ const detaileprofile = async (req, res) => {
     const reffrelcode = userData.referral
     const inviteLink = '/signup';
 
-
-
-    console.log(reffrelcode, 'referralCode');
-
-
     res.render("userprofile", {
       data: userData,
       address: userData.address,
@@ -921,7 +916,6 @@ const postPlaceOrder = async (req, res) => {
         }
 
         const result = await User.updateOne({ _id: user._id }, { $set: { wallet: wall } })
-        console.log(result, 'sssssssssss');
         await Cart.deleteOne({ user: user._id });
         for (i = 0; i < product.length; i++) {
           const productId = product[i].productId;
@@ -939,7 +933,6 @@ const postPlaceOrder = async (req, res) => {
           receipt: '' + orderId,
         };
         instance.orders.create(options, function (err, order) {
-          console.log(order);
           if (err) {
             console.log(err);
           }
