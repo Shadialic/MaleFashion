@@ -1102,7 +1102,6 @@ const applycoupon = async (req, res) => {
         if (couponData.expiredate >= new Date()) {
           if (couponData.limit != 0) {
             if (couponData.mincartamount <= amount && amount >= couponData.couponamount) {
-              console.log('-0-0-0-0');
               let discountvalue1 = couponData.couponamount;
               let distotal = Math.round(amount - discountvalue1);
               let percentagevalue = (discountvalue1 / amount) * 100;
@@ -1144,7 +1143,6 @@ const verifyPayment = async (req, res) => {
       const details = req.body;
       const crypto = require("crypto");
       let hmac1 = crypto.createHmac("sha256", '7wApZhaQBqJECM0mY6rjPE6U');
-      console.log('---===--==', hmac1);
       hmac1.update(
         details.payment.razorpay_order_id +
         "|" +
@@ -1173,7 +1171,6 @@ const verifyPayment = async (req, res) => {
         res.json({ onlineSuccess: true });
       }
     } else {
-      console.log("Ligin");
       res.redirect("/loginpage");
     }
   } catch (error) {
