@@ -559,11 +559,6 @@ const detaileprofile = async (req, res) => {
     const reffrelcode = userData.referral
     const inviteLink = '/signup';
 
-
-
-    console.log(reffrelcode, 'referralCode');
-
-
     res.render("userprofile", {
       data: userData,
       address: userData.address,
@@ -921,7 +916,6 @@ const postPlaceOrder = async (req, res) => {
         }
 
         const result = await User.updateOne({ _id: user._id }, { $set: { wallet: wall } })
-        console.log(result, 'sssssssssss');
         await Cart.deleteOne({ user: user._id });
         for (i = 0; i < product.length; i++) {
           const productId = product[i].productId;
@@ -939,7 +933,6 @@ const postPlaceOrder = async (req, res) => {
           receipt: '' + orderId,
         };
         instance.orders.create(options, function (err, order) {
-          console.log(order);
           if (err) {
             console.log(err);
           }
@@ -1109,7 +1102,6 @@ const applycoupon = async (req, res) => {
         if (couponData.expiredate >= new Date()) {
           if (couponData.limit != 0) {
             if (couponData.mincartamount <= amount && amount >= couponData.couponamount) {
-              console.log('-0-0-0-0');
               let discountvalue1 = couponData.couponamount;
               let distotal = Math.round(amount - discountvalue1);
               let percentagevalue = (discountvalue1 / amount) * 100;
@@ -1151,7 +1143,6 @@ const verifyPayment = async (req, res) => {
       const details = req.body;
       const crypto = require("crypto");
       let hmac1 = crypto.createHmac("sha256", '7wApZhaQBqJECM0mY6rjPE6U');
-      console.log('---===--==', hmac1);
       hmac1.update(
         details.payment.razorpay_order_id +
         "|" +
@@ -1180,7 +1171,6 @@ const verifyPayment = async (req, res) => {
         res.json({ onlineSuccess: true });
       }
     } else {
-      console.log("Ligin");
       res.redirect("/loginpage");
     }
   } catch (error) {
